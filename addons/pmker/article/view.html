@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title>{{config.article.title}}</title>
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/article.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/show.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/comment.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Lib/layer/skin/layer.css">
+<style>
+.visitor_box{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.visitor_image{
+    width: 30px;
+    height: 30px;
+    display: inline;    
+    margin-right: 10px; 
+    border-radius: 15px;
+    border:1px solid #f4f4f4;
+}
+</style>
+<script src="{{config.cdn}}/static/Lib/jquery/jquery.min.js"></script>
+<script src="{{config.cdn}}/static/Lib/layer/layer.js"></script>
+<script>
+// var _hmt = _hmt || [];
+// (function() {
+//   var hm = document.createElement("script");
+//   hm.src = "https://hm.baidu.com/hm.js?9ddc22103f924d5c08198c8db8950dfc";
+//   var s = document.getElementsByTagName("script")[0]; 
+//   s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+</head>
+<body >
+<div class="rich_media" id="js_article">
+    <div class="top_banner" id="js_top_ad_area">
+    </div> 
+    <div class="rich_media_inner">
+        <div id="page-content">
+            <div class="rich_media_area_primary" id="img-content">
+                <h2 class="rich_media_title" id="activity-name">{{config.article.title}}</h2>
+                <p id="showTimeWxb">
+                    <span id="showTime">2017-09-19</span>
+                    <span id="author">艾格玛上就会格上玛尼环亚</span>
+                </p>
+                <div class="rich_media_content " id="js_content" style="margin-top: 20px;" >
+                   {{config.article.content|safe}}    
+
+
+
+                          </div>
+                <div style="color: #999; font-size: 14px; margin-top: 10px; margin-bottom: 10px;">
+                                                </div>
+                <div class="show_icon">
+                    <div class="show_icon_like">
+                                                <span>阅读 5</span>
+                        <span class="addlike" data-pid="2161"><img class="likeicon" src="{{config.cdn}}/static/img/V002807266R9UH4258K.png" width="16"> <font class="likenum">0</font></span>
+                    </div>
+                    <div class="show_icon_report">
+                        <a href="/show/report/type/1/mid/2161.html">投诉</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="visitor_box">
+                                                <img src="http://wx.qlogo.cn/mmopen/vi_32/p71tYyGniaoa4tBhUTXYTANupL6sYbibkluTs4D47ic3jQZFEibPE7KqAn9USyIaIpfc7mqT2JmHxtX2tEgjfjMRww/0" class="visitor_image">                  <img src="{{config.cdn}}/static/img/808228JSEL5X277.png" class="visitor_image">    
+                    <div class="clearfix"></div>
+                </div>
+            </div>              
+        </div>
+    </div>
+    <div class="show_article_userinfo" style="margin-top: 10px;">
+        <a href="/show/index/sid/20782.html">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr align="left" valign="top">
+                <td width="70">
+                    <img src="http://wx.qlogo.cn/mmopen/vi_32/p71tYyGniaoa4tBhUTXYTANupL6sYbibkluTs4D47ic3jQZFEibPE7KqAn9USyIaIpfc7mqT2JmHxtX2tEgjfjMRww/0" class="show_article_headimg">
+                </td>
+                <td width="20"></td>
+                <td>
+                    <div class="show_article_nickname">
+                                        艾格玛上就会格上玛尼环亚                    </div>
+                    <div class="show_company"></div>
+                </td>
+                <td width="30" valign="middle" align="right">
+                    <img src="{{config.cdn}}/static/img/V00280721977636YX73.png" width="15" height="15">
+                </td>
+            </tr>
+        </table>
+        </a> 
+    </div>
+    <div class="comment">
+        <div class="pl_head">
+            <hr class="pl_fgx">
+            <div class="pl_title">
+                精选留言
+            </div>
+            <div class="clearfix"></div>
+                        <div class="clearfix"></div>
+        </div>
+            </div>
+    <div style="margin-top: 10px; display: none;">
+        <img src="{{config.cdn}}/static/img/V0028072688725L5XG7.png" width="100%">
+    </div>
+    <div style="margin-top: 10px; margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px; font-size: 14px; text-align: center;">
+        技术支持 > <a id="qrcode" style="color: #19a0fa;">易企微</a>
+    </div>
+</div>
+<input type="hidden" id="pid" value="2161">
+<input type="hidden" id="oid" value="20782">
+<div class="service_want_box" id="qrcode2">
+    <div class="service_want_spacing">
+        <div class="service_want_wechat">
+            <div class="service_want_close">&times;</div>
+            <div style="text-align: center; margin-top: 10px; margin-bottom: 10px;">长按识别二维码关注</div>
+            <img src="{{config.cdn}}/static/img/8082364K8C23498.png" width="100%"> 
+            <div style="text-align: center; margin-bottom: 10px;">一键发布微信图文</div>
+        </div>
+    </div>
+</div>
+<script>
+    var pl_zbf_name="作者回复";
+</script><script>
+var likestate=0;
+$(".addlike").click(function(){
+    var pid=$(this).data('pid');
+    $.ajax({
+        type:'POST',
+        url:"/show/addlike.html",
+        data:{pid:pid,likestate:likestate},
+        error: function (request) {
+            layer.msg("网络异常，请稍后再试");
+        },
+        success:function(data){
+            if(data.error==0){
+                $(".likenum").text(data.click); 
+                if(likestate==0){
+                    likestate=1;
+                    $(".likeicon").attr('src','{{config.cdn}}/static/img/V00280726MUYDM599TC.png');
+                }else{
+                    likestate=0;
+                    $(".likeicon").attr('src','{{config.cdn}}/static/img/V002807266R9UH4258K.png');
+                }               
+            }
+        }
+    });
+});
+
+$("#qrcode").click(function(){
+    $("#qrcode2").fadeIn(200);
+});
+
+$(".service_want_close").click(function(){
+    $(".service_want_box").fadeOut(200);
+});
+
+$("#saveBtn").click(function(){
+    var pid=$("#pid").val();
+    var oid=$("#oid").val();
+    var visit_name=$("#visit_name").val();
+    var visit_mobile=$("#visit_mobile").val();
+    var visit_ps=$("#visit_ps").val();
+    layer.load(1);
+    if(visit_name==""){
+        layer.closeAll();
+        layer.msg("姓名不能为空");
+        return false;
+    }
+
+    if(visit_mobile==""){
+        layer.closeAll();
+        layer.msg("电话不能为空");
+        return false;
+    }
+
+    var mobilev = /^((\(\d{2,3}\))|(\d{3}\-))?1[3-9]\d{9}$/;
+    if(!mobilev.test(visit_mobile)) {
+        layer.closeAll();
+        layer.msg('手机号码格式不正确');
+        return false;
+    }
+
+    var pattern=/[`~#$%^&*()_+<>:"{},\/;'[\]]/im;
+    if(pattern.test(visit_name)) {
+        layer.closeAll();
+        layer.msg('姓名包含特殊标点符号');
+        return false;
+    }
+
+    if(pattern.test(visit_ps)) {
+        layer.closeAll();
+        layer.msg('留言包含特殊标点符号');
+        return false;
+    }
+
+    $.ajax({
+        type:'post',
+        url:"/show/postinfo.html",
+        data:{pid:pid,oid:oid,visit_name:visit_name,visit_mobile:visit_mobile,visit_ps:visit_ps},
+        error: function (request) {
+            layer.closeAll();
+            layer.msg("网络异常，请稍后再试");
+        },
+        success:function(data){
+            layer.closeAll();
+            if(data.error==0){
+                $("#visit_name").val("");
+                $("#visit_mobile").val("");
+                $("#visit_ps").val("");
+                layer.msg(data.msg);
+            }else{
+                layer.msg(data.msg);
+            }
+        }
+    });
+});
+
+var plcurrent = 1;
+var plcount   = 0;
+$("#pl_more").click(function(){
+    if(plcount <= (plcurrent*3)){
+        $("#pl_more").text('已加载完毕');
+        return;
+    }              
+    plcurrent++;
+    showPlList();  
+});
+
+var openid="oTQORuPYipaAS6mkW_CjTylFzNik";
+function showPlList(){
+    var pid=$("#pid").val();
+    $.ajax({
+        type:"POST",
+        url:"/show/getcomment.html",
+        data:{pid:pid,page:plcurrent},
+        error: function (request) {
+            layer.msg("网络连接失败");
+        },
+        success: function(data){
+            if(data.error==1){
+                $("#pl_more").text('已加载完毕');
+            }else{
+                event.preventDefault(); 
+                $.each(data,function(k,v){
+                    var phtml;
+                        if(v.openid == openid){
+                            phtml='<div class="pl_box"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr valign="top"><td width="40"><div class="pl_headimg"><img src="' + v.headimgurl + '" width="32" height="32"></div></td><td><p class="pl_nickname">' + v.nickname + '</p><p class="pl_content">' + v.comment + '</p><p class="pl_datetime">' + v.comment_time + '<a class="pl_delete" data-cid="' + v.cid + '">删除</a></p>';
+                        }else{
+                            phtml='<div class="pl_box"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr valign="top"><td width="40"><div class="pl_headimg"><img src="' + v.headimgurl + '" width="32" height="32"></div></td><td><p class="pl_nickname">' + v.nickname + '</p><p class="pl_content">' + v.comment + '</p><p class="pl_datetime">' + v.comment_time + '</p>';
+                        }
+                        if(v.reply != 'null'){
+                            phtml+='<div class="pl_zbf_box"><div class="pl_zbf"><span class="pl_icon"></span> <span class="pl_zbf_name">' + pl_zbf_name + '</span><div class="clearfix"></div></div><div class="pl_zbf_content">' + v.reply + '</div><div class="pl_zbf_datetime">' + v.reply_time + '</div></div>';
+                        }
+                        phtml+='</td></tr></table></div>';
+                    $("#comment").append(phtml);
+                });
+            }
+        }
+    });
+}
+
+$("#comment").on('click','.pl_delete',function(){
+    var obj=$(this);
+    var cid=$(this).data('cid');
+    layer.confirm("确定删除留言吗？", {
+        btn: ['确定','取消']
+    }, function(){
+        $.ajax({
+            type: "POST",
+            url: "/show/delcomment.html",
+            data: {cid:cid},
+            error: function (request) {
+                layer.msg("网络连接失败");
+            },
+            success: function (data) {
+                layer.closeAll();
+                if(data.error==0){
+                    obj.parent('.pl_datetime').parent('td').parent('tr').parent('tbody').parent('table').parent('.pl_box').remove();
+                    layer.msg(data.msg);
+                }else{
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    })
+});
+</script>
+<script>
+    document.body.ontouchmove = function (e) {
+        e.preventDefault();
+    };
+
+    var startX = 0, startY = 0;
+    function touchSatrtFunc(evt) {
+        try{
+            var touch = evt.touches[0]; //获取第一个触点  
+            var x = Number(touch.pageX); //页面触点X坐标  
+            var y = Number(touch.pageY); //页面触点Y坐标  
+            //记录触点初始位置  
+            startX = x;
+            startY = y;
+        } catch (e) {
+            // alert('touchSatrtFunc：' + e.message);
+        }
+    }
+    document.addEventListener('touchstart', touchSatrtFunc, false);
+
+    var _ss = document.getElementById("js_article");
+    _ss.ontouchmove = function (ev) {
+        var _point = ev.touches[0],
+            _top = _ss.scrollTop;
+        var _bottomFaVal = _ss.scrollHeight - _ss.offsetHeight;
+        if (_top === 0) {
+            // 阻止向下滑动
+            if (_point.clientY > startY) {
+                ev.preventDefault();
+            } else {
+                // 阻止冒泡
+                // 正常执行
+                ev.stopPropagation();
+            }
+        } else if (_top === _bottomFaVal) {
+            // 到达底部
+            // 阻止向上滑动
+            if (_point.clientY < startY) {
+                ev.preventDefault();
+            } else {
+                // 阻止冒泡
+                // 正常执行
+                ev.stopPropagation();
+            }
+        } else if (_top > 0 && _top < _bottomFaVal) {
+            ev.stopPropagation();
+        } else {
+            ev.preventDefault();
+        }
+    };
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        appId: 'wxd0f4209a69f7ca5e',
+        timestamp: '1505761319',
+        nonceStr: 'QEOzUXWaIcQyiah1',
+        signature: '4cef8d74e74f7cbfb412186ee376dd4473bc1170',
+        jsApiList: [
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'hideMenuItems'
+        ]
+    });
+    wx.ready(function () {
+        wx.hideMenuItems({
+            menuList: ["menuItem:copyUrl","menuItem:openWithQQBrowser","menuItem:openWithSafari","menuItem:originPage","menuItem:share:email","menuItem:share:QZone","menuItem:share:qq"]
+        });
+
+        var uid=20782;
+        var pid=2161;
+    
+        wx.onMenuShareTimeline({
+            title: "gggh",
+            desc: "gggh",
+            link: window.location.href,
+            imgUrl: "{{config.cdn}}/static/img/20315057584597J6467A482.jpg",
+            success: function () { 
+                $.ajax({
+                    type:'post',
+                    url:"/show/share.html",
+                    data:{ uid:uid,pid:pid,opt:2 },
+                });
+            },
+        });
+
+        wx.onMenuShareAppMessage({
+            title: "gggh",
+            desc: "gggh \n分享来自『易企微编辑器』",
+            link: window.location.href,
+            imgUrl: "{{config.cdn}}/static/img/20315057584597J6467A482.jpg",
+            success: function () { 
+                $.ajax({
+                    type:'post',
+                    url:"/show/share.html",
+                    data:{ uid:uid,pid:pid,opt:3 },
+                });
+            },
+        });
+    });
+</script>
+</body>
+</html>

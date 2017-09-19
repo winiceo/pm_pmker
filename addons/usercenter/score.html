@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href='/css/base.css?t=1505204250563' />
+<style> a { cursor: pointer; } </style>
+
+
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-38d6df278346364e' 'unsafe-inline' 'unsafe-eval' https: *.qq.com api.map.baidu.com wx-static.drip.im eco-api.meiqia.com wxs-b.drip.im hm.baidu.com;object-src *.qq.com *.youku.com;frame-src *.qq.com *.youku.com weixinping: weixin:">
+
+
+    <title>积分主页</title>
+    <link rel="stylesheet" type="text/css" href="/css/shop/score/header.css?t=1505204250563"/>
+    <link rel="stylesheet" type="text/css" href="/css/shop/score/index.css?t=1505204250563"/>
+    <link rel="stylesheet" type="text/css" href="/css/shop/common/qrcode-box.css?t=1505204250563"/>
+  </head>
+  <body>
+    
+<header>
+  <div class="wrap">
+    <div class="avatar fn-left">
+        
+      <a href="#" class="touch-redirect  fn-clear">
+        <img src="http://wx.qlogo.cn/mmopen/PiajxSqBRaEJ5XdqELIuqdMtNlIeRNqwWlDg1z0LrQawcZQ6FDMSCKawzicqOJUmnlmxtHFbh6qSbicj20RdjpFJg/0" />
+        <span class="nick">赏客优-少辉</span>
+      </a>
+        
+    </div>
+    <div class="entries prizes fn-right">
+     <!--  <a href="/score/prizes" class="prize touch-redirect
+      "><i class="icon iconfont">&#xe604;</i>我的奖品</a>
+      
+          
+        <a href="/score/rank?date=monthCur"
+          
+           class="rank touch-redirect">
+          <i class="icon iconfont">&#xe601;</i>签到排行榜
+        </a>
+       -->
+    </div>
+  </div>
+    
+</header>
+
+    
+      
+  <div id="prize-list">
+    <div class="wrap">
+    <div class="wrap-border"></div>
+      
+    <div class="prize-item">
+      <div class="item-container">
+        <dt>奖品名称：测试</dt>
+        <dd>中奖时间：2016-12-14</dd>
+        <dd>备注：
+  连续签到奖励
+</dd>
+        <dd>领取方式： 邮寄 </dd>
+        
+          
+            
+              <dd>当前状态： <span class="out-of-date">已过期</span> </dd>
+                
+            
+          
+        
+      </div>
+      
+<div class="score-award-box  hidden">
+  <div class="box">
+    <div class="box-hd">
+      <h3>
+        获得奖励
+        
+        
+      </h3>
+      <a class="box-close"></a>
+    </div>
+    <div class="box-bd">
+        
+      <p>您已经连续签到1天，额外获得：</p>
+      <ol>
+          
+        <li><em>1</em>1积分</li>
+          
+        <li><em>2</em>测试<label> 邮寄 </label></li>
+      </ol>
+        
+        
+      <div class="postage-box hidden">
+        <h3>填写邮寄信息</h3>
+        <div class="postage-form">
+          
+
+              
+          <p><input type="text" name="name" placeholder="姓名" /></p>
+              
+              
+              
+          <p><textarea name="address" placeholder="地址"></textarea></p>
+              
+              
+          <p><input type="text" name="remark" placeholder="hahaha" /></p>
+              
+          
+        </div>
+        <div class="action">
+            
+              
+          <a class="button-gold submit-postage-trigger" data-source="co_check" data-id="5440697">提交</a>
+            
+        </div>
+      </div>
+      <div class="postage-submited">
+        <em class="tick"></em>已提交邮寄信息
+      </div>
+        
+    </div>
+  </div>
+</div>
+    </div>
+      
+    </div>
+  </div>
+  
+  <div class="expired-popup alert-popup hidden">
+    <div class="alert-info">
+      <h3>为什么过期了</h3>
+      <p>线上兑奖的有效期是15天，中奖后需在15天内提交兑奖信息。线下兑奖的有效期是30天。</p>
+    </div>
+    <div class="alert-act">
+      <a class="alert-pop-confirm-trigger">明白了</a>
+    </div>
+  </div>
+  <div class="pop-cover dark hidden"></div>
+
+
+    
+    
+<div id="score-qrcode" class="hidden">
+  <div class="box">
+    <div class="wrap">
+      <div class="qrcode-inner">
+        <img src="http://133490.weixin.drip.im/score/qrcode?openid=oBG0juLO0g6JcBUtvNwNpjxw_1rc" class="qrcode" />
+        
+          <!--<div class="member-avatar">
+            <div class="inner">
+              <img src="http://wx.qlogo.cn/mmopen/PiajxSqBRaEJ5XdqELIuqdMtNlIeRNqwWlDg1z0LrQawcZQ6FDMSCKawzicqOJUmnlmxtHFbh6qSbicj20RdjpFJg/0" />
+            </div>
+          </div>-->
+        
+      </div>
+      <p>扫描二维码来给我积分</p>
+    </div>
+  </div>
+</div>
+  </body>
+  <script src="/js/core/sea.js?t=1505204250563"></script>
+  <script nonce="38d6df278346364e">
+    seajs.use("/js/app.js?t=1505204250563",function(app){
+      app.init('shop/score/index');
+    });
+  </script>
+</html>
+

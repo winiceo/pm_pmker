@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="renderer" content="webkit|ie-comp|ie-stand" /> 
+	<meta charset="UTF-8">
+	<title>砸金蛋</title>
+	<meta http-equiv="X-UA-Compatible" content="edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main_response.css">
+        <script type="text/javascript" src="http://www.daimago.com/Js/mw_jscode.js"></script>
+</head>
+<body>
+	<!-- <div class="bg-mask"></div>
+	<div class="chouJiang">
+		<p class="chouJiangTishi">请稍等...</p>
+		<img class="caiDai" src="images/caidai.png" alt="彩带">
+		<img class="imgDan" src="images/egg.png" alt="砸蛋" title="砸蛋">
+		<img class="imgChuiZi" src="images/chuizi.png" alt="锤子">
+	</div> -->
+	<!-- <div class="jiangPinResult">
+		<img class="gongxi" src="images/gx.png" alt="恭喜你" title="恭喜">
+		<p>获得500元现金</p>
+		<img class="imgJiangPin" src="images/jiangpin.png" alt="奖品" title="奖品">
+		<a href="https://www.hmyd.com/"><input class="btn_Get" value="领取奖品" type="button"></a>
+		<img class="colseJiangPin" src="images/close.png" alt="关闭" title="关闭">
+	</div> -->
+
+	<!-- <div class="inputInfo active">
+		<img class="colseLogin" src="images/close.png" alt="关闭">
+		<p class="inputInfoTitle">输入用户信息</p>
+		<div class="userNameDiv">
+			<label for="nameInput">用户名:</label>
+			<input class="nameInput" name="nameInput" id="nameInput" type="text" placeholder="请输入电话号码">
+		</div>
+		<div class="phoneDiv">
+			<label for="phoneInput">手机号:</label>
+			<input class="phoneInput" name="phoneInput" id="phoneInput" type="text" placeholder="请输入电话号码">
+		</div>
+		<input class="submitTijiao" type="button" value="提交">
+	</div> -->
+
+	<div class="loadingDiv" id="loadingDiv">
+		<p class="wiatTitle">请稍等...</p>
+		<img src="images/logo.png" alt="砸金蛋">
+	</div>
+
+	<div class="goldContent">
+		<div class="headPage">
+			<img class="headPage_Img" src="images/indexPageImg.jpg" alt="砸金蛋" title="砸金蛋">
+		</div>
+
+		<div class="goldEggsDiv">
+			<p class="tishiChouJiang">您好,请<span class="loginSpan">登录</span></p>
+			<img class="centerPage_Img" src="images/indexPageImg2.jpg" alt="砸金蛋" title="砸金蛋">
+			<div class="list_EggsDiv"  id="carousel">
+				<div>
+					<ul class="jinDanUl" id="jinDanUl1">
+						<li><img src="images/egg.png" alt="egg1" title="快来砸我呀！"/></li>
+						<li><img src="images/egg.png" alt="egg2" title="快来砸我呀！"/></li>
+						<li><img src="images/egg.png" alt="egg3" title="快来砸我呀！"/></li>
+					</ul>	
+				</div>
+	
+				<div>
+					<ul class="jinDanUl1" id="jinDanUl2">
+						<li><img src="images/egg.png" alt="egg4" title="快来砸我呀！"/></li>
+						<li><img src="images/egg.png" alt="egg5" title="快来砸我呀！"/></li>
+						<li><img src="images/egg.png" alt="egg6" title="快来砸我呀！"/></li>
+					</ul>	
+				</div>
+			</div>
+
+		<!-- 	<div class="brandStoreLeft slider">
+			<div style="z-index: 0; left: 0px;"><img src="images/2.jpg"></div>
+			<div style="left: 313px; z-index: 0;"><img src="images/1.jpg"></div>
+			</div> -->
+		</div>
+
+		<div class="paiMingAllDiv list_Content">
+			<div class="titleDiv">
+				<div class="title_Div">
+					<h3>金蛋榜单</h3>
+				</div>
+				<span class="line_1px"></span>
+			</div>
+
+			<div class="contentDiv">
+				<div class="insert_Span"></div>
+				<div class="list_PaiMing">
+					<div class="list_Div">
+						<div class="list_Title">
+							<span class="list_Time">时间</span>
+							<span class="list_Name">用户名</span>
+							<span class="list_Things">金蛋大奖</span>
+						</div>
+						<div class="bg_Dashed"></div>
+
+						<div class="all_List_Div">
+							<ul class="ul_List1">
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元红包大奖</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">100元小惠钱包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">1000积分</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元现金红包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元红包大奖</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">100元小惠钱包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">1000积分</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元现金红包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元红包大奖</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">100元小惠钱包</span>
+								</li>
+							</ul>
+							<ul class="ul_List2">
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元红包大奖</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">100元小惠钱包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">1000积分</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元现金红包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元红包大奖</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">100元小惠钱包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">1000积分</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元现金红包</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">500元红包大奖</span>
+								</li>
+
+								<li>
+									<span class="span_dateTime">15:00</span>
+									<span class="span_userNme">daiwei</span>
+									<span class="span_userWingName">100元小惠钱包</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="rulesActivity list_Content">
+			<div class="titleDiv">
+				<div class="title_Div">
+					<h3>活动细则</h3>
+				</div>
+				<span class="line_1px"></span>
+			</div>
+
+			<div class="list_Rules">
+				<i class="right_img"></i>
+				<i class="left_img"></i>
+				<ul>
+					<li>1.所有实名的女性会员，3月8日活动当天，免费获得8次砸金蛋机会，超过免费次数，<span class="color_red">按50积分/砸</span>扣除积分获取抽奖机会；</li>
+					<li>2.奖项设置：现金券、小惠钱包和积分等，奖池内大奖含有现金券500元、小惠钱包100元、1000积分等；</li>
+					<li>3.奖品为实时发放，请会员自行前往个人中心查看获取奖品；</li>
+					<li>4.客服免费咨询热线：123456789、邮箱：123456789@qq.com（工作日：09：00-17：30）；</li>
+					<li>5.本活动最终解释权归daimago.com所有。</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footerImg">
+			<img src="images/bottom.png" alt="砸金蛋活动">
+		</div>
+	</div>
+</body>
+<script  data-main="js/do_main.js" src="js/jquery-2.1.0.min.js"></script>
+<script src="js/require.js"></script>
+<script>
+	var dis = 0;
+	function autoWinsList(){
+		dis++;
+		$('.all_List_Div').scrollTop(dis);
+		if ($('.all_List_Div').scrollTop()>=$('.ul_List1').height()) {
+			dis = 0;
+			$('.all_List_Div').scrollTop(dis);
+		}
+	}
+	var myset=setInterval("autoWinsList()",50);
+</script>
+<script type="text/javascript">
+//加载loading效果
+// document.onreadystatechange=function completeLoading(){
+// 	var tishi = document.getElementById('loadingDiv');
+//   	if (document.readyState=='complete') {
+//   		tishi.hide();
+// 	}
+// }
+</script>
+</html>

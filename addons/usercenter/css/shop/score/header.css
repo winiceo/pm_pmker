@@ -1,0 +1,89 @@
+header {
+  height:3.2rem;
+  width:100%;
+  background:#fff;
+  line-height: 3rem;
+  position: fixed;
+  z-index:2;
+}
+header:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background-color: #e6e6db;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+header .avatar img {
+  height:1.8rem;
+  width:1.8rem;
+  margin-top:0.72rem;
+  float:left;
+}
+header .avatar a {
+  color:#666;
+  display: inline-block;
+}
+header .avatar a:hover {
+  text-decoration: none;
+}
+header .wrap {
+  padding:0 0.77rem;
+}
+header .avatar img {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right:0.2rem;
+}
+header .avatar .nick {
+  font-size: 0.7rem;
+  max-width: 5rem;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  float: left;
+}
+header .entries a {
+  float: left;
+  line-height: 1;
+  text-align: center;
+  color:#666;
+  margin-top:0.65rem;
+  margin-left:0.7rem;
+  font-size:0.56rem;
+  position: relative;
+}
+header .entries a:hover {
+  text-decoration: none;
+}
+header .entries a i {
+  display: block;
+  font-size:0.98rem;
+  margin-bottom:0.4rem;
+}
+header .entries a.prize i {
+  font-size:1.15rem;
+  margin-top:-0.15rem;
+  margin-bottom:0.4rem;
+}
+header .entries.prizes .prize,
+header .entries.rank .rank {
+  color:#33cc00;
+}
+header .index-guard {
+  display: inline-block;
+  position: absolute;
+  top:2.3rem;
+  left:3.5rem;
+}
+header .index-guard img {
+  height:2.7rem;
+}

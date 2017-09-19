@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href='{{config.cdn}}/css/base.css?t=1505204250563'/>
+    <style> a {
+        cursor: pointer;
+    } </style>
+    <link rel="stylesheet" href="/public/addons/lib/vue-ydui/dist/ydui.px.css">
+
+
+    <meta>
+
+
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="{{config.cdn}}/css/shop/score/header.css?t=1505204250563"/>
+    <link rel="stylesheet" type="text/css" href="{{config.cdn}}/css/shop/score/index.css?t=1505204250563"/>
+    <link rel="stylesheet" type="text/css" href="{{config.cdn}}/css/shop/common/qrcode-box.css?t=1505204250563"/>
+    <style>
+    .active{
+      background-color:rgba(128, 128, 128, 0.26);
+    }
+    [v-cloak] {
+  display: none;
+}
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+
+
+    <header>
+        <div class="wrap">
+            <div class="avatar fn-left">
+
+                <a href="#" class="touch-redirect  fn-clear">
+                    <img src="{{config.userinfo.headimgurl}}"/>
+                    <span class="nick">{{config.userinfo.nickname}}</span>
+                </a>
+
+
+            </div>
+            <div class="entries prizes fn-right">
+                <!--  <a href="/score/prizes" class="prize touch-redirect
+                 "><i class="icon iconfont">&#xe604;</i>我的奖品</a>
+
+
+                   <a href="/score/rank?date=monthCur"
+
+                      class="rank touch-redirect">
+                     <i class="icon iconfont">&#xe601;</i>签到排行榜
+                   </a>
+                  -->
+            </div>
+        </div>
+
+    </header>
+
+
+    <div id="prize-list">
+        <div class="wrap">
+            <div class="wrap-border"></div>
+
+            <div class="prize-item">
+
+
+                <template v-for="item in drawList">
+                    <div class="item-container out-of-date" v-on:click='showQrcode(item.code)' style='margin-bottom: 2px;' v-bind:class="{ active: item.status==1}">
+                        <dd>奖项：${item.draw.grade}</dd>
+                        <dt>奖品名称：${item.draw.title}</dt>
+                        <dd>中奖时间：${item.createtime}</dd>
+
+                        <dd v-if='item.draw.desc'>备注：
+                            ${item.draw.desc}
+                        </dd>
+
+                        <dd>兑奖券号：${item.code}</dd>
+
+                        <dd v-if='item.status==1'>已核销</dd>
+                        <dd v-if='item.status==1'>${item.createTime}</dd>
+                    </div>
+
+                </template>
+
+
+                <div class="score-award-box  hidden">
+                    <div class="box">
+                        <div class="box-hd">
+                            <h3>
+                                获得奖励
+
+
+                            </h3>
+                            <a class="box-close"></a>
+                        </div>
+                        <div class="box-bd">
+
+                            <p>您已经连续签到1天，额外获得：</p>
+                            <ol>
+
+                                <li><em>1</em>1积分</li>
+
+                                <li><em>2</em>测试<label> 邮寄 </label></li>
+                            </ol>
+
+
+                            <div class="postage-box hidden">
+                                <h3>填写邮寄信息</h3>
+                                <div class="postage-form">
+
+
+                                    <p><input type="text" name="name" placeholder="姓名"/></p>
+
+
+                                    <p><textarea name="address" placeholder="地址"></textarea></p>
+
+
+                                    <p><input type="text" name="remark" placeholder="hahaha"/></p>
+
+
+                                </div>
+                                <div class="action">
+
+
+                                    <a class="button-gold submit-postage-trigger" data-source="co_check"
+                                       data-id="5440697">提交</a>
+
+                                </div>
+                            </div>
+                            <div class="postage-submited">
+                                <em class="tick"></em>已提交邮寄信息
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="expired-popup alert-popup hidden">
+        <div class="alert-info">
+            <h3>商家扫码核销</h3>
+            <p><img src='' id="qrcode1"></p>
+        </div>
+        <div class="alert-act">
+            <a class="alert-pop-confirm-trigger">关闭</a>
+        </div>
+    </div>
+    <div class="pop-cover dark hidden"></div>
+
+
+    <div id="score-qrcode" class="hidden">
+        <div class="box">
+            <div class="wrap">
+                <div class="qrcode-inner">
+                    <img src="/score/qrcode?openid=oBG0juLO0g6JcBUtvNwNpjxw_1rc" class="qrcode"/>
+
+                    <!--<div class="member-avatar">
+                      <div class="inner">
+                        <img src="http://wx.qlogo.cn/mmopen/PiajxSqBRaEJ5XdqELIuqdMtNlIeRNqwWlDg1z0LrQawcZQ6FDMSCKawzicqOJUmnlmxtHFbh6qSbicj20RdjpFJg/0" />
+                      </div>
+                    </div>-->
+
+                </div>
+                <p>扫描二维码来给我积分</p>
+            </div>
+        </div>
+    </div>
+
+    <yd-popup v-model="show1" position="bottom" width="100%">
+        <div class="m-grids-1" style='text-align: center'>
+            <a href="" class="grids-item router-link-exact-active router-link-active">
+                <div class="grids-icon">
+                    <canvas id=qr></canvas>
+                </div>
+                <div class="grids-txt"><span>商家扫此二维码核销</span></div>
+
+            </a>
+            
+        </div>
+
+
+    </yd-popup>
+
+
+</div>
+</body>
+<style>
+.m-grids-2 .grids-item {
+    width: 100%;
+}
+ 
+</style>
+<script src="{{config.cdn}}/qrious.min.js"></script>
+<script src="/public/addons/lib/vue/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="/public/addons/lib/vue-ydui/dist/ydui.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data() {
+            return {
+                show1: false,
+                qrcode: '',
+                drawList: []
+
+            }
+        },
+        methods: {
+            showQrcode: function (code) {
+                this.show1 = true;
+
+                var qr = new QRious({
+                    element: document.getElementById('qr'),
+
+                     
+                    size: 220,
+                    value: 'http://' + window.location.host + '/draw/qrcode/' + code
+                });
+
+
+            }
+        },
+        mounted() {
+            this.drawList = JSON.parse('{{config.myLottery|dump|safe}}')
+
+        }
+    })
+</script>
+</html>
+

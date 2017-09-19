@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title>易企微编辑器</title>
+<link rel="stylesheet" href="{{config.cdn}}/static/Lib/weui/weui2.min.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/base.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/main.css">
+<script src="{{config.cdn}}/static/Lib/jquery/jquery.min.js"></script>
+<script src="{{config.cdn}}/static/Lib/Eleditor/Eleditor.min.js"></script>
+<style>
+#articleEditor{
+    width: 100%;
+    min-height: 150px;
+    box-sizing: border-box;
+    padding: 10px;
+    color: #444;
+    background: #fff;
+    position: relative;
+}
+#articleEditor p{
+    letter-spacing: 0.25px;
+    font: 16px/25px Tahoma, Verdana, 宋体;
+    margin: 10px 0px;
+}
+#articleEditor h4 {
+    font-weight: bold;
+    line-height: 1.333em;
+    margin: 10px 0 20px;
+    padding: 25px 0 0;
+}
+#articleEditor img{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+.Eleditor-controller ul li.Eleditor-uploadImage:before{background-position:0px -62px}
+.Eleditor-controller ul li.Eleditor-uploadImage div[id^='rt_rt_']{left:0!important;width:100%!important;opacity:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+.Eleditor-textStyle-bgColor{
+    display: none;
+}
+.blank_save_box{
+    width: 90%;
+    margin: 20px auto;
+}
+</style>
+</head>
+<body>
+<div class="js_show">
+    <div class="page__bd">
+        <div class="weui-cells" style="margin: 0;">
+            <a class="weui-cell weui-cell_access" href="/manage/index.html">
+            <span class="back_icon"><img src="{{config.cdn}}/static/left.png" width="12"></span>
+            <div class="weui-cell__bd" style="text-align: center;">
+                新建文章
+            </div>
+            </a>
+        </div>
+        <div class="weui-cells__title">标题</div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <input id="title" class="weui-input" type="text" placeholder="请输入标题"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">封面</div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__bd upload_cover">
+                            <div class="weui-uploader__input-box">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="weui-cells__title">正文（点文字或图片增加内容）</div>
+        <div id="articleEditor"></div>
+        <div class="weui-cells__title">报名表单（默认不开启）</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd">是否开启</div>
+                <div class="weui-cell__ft">
+                    <label for="switchCP" class="weui-switch-cp">
+                        <input id="switchCP" name="switchCP" class="weui-switch-cp__input" type="checkbox"/>
+                        <div class="weui-switch-cp__box"></div>
+                    </label>
+                </div>
+            </div>
+        </div> 
+        <div class="blank_save_box">
+            <a class="blank_save" id="saveBtn">发布</a>
+        </div>       
+        <div class="weui-footer" style="margin-top: 20px; margin-bottom: 20px;">
+            <p class="weui-footer__links">
+                <a href="/manage/helpinfo/pid/104.html" class="weui-footer__link">内容规范</a>
+                <a href="/manage/help.html" class="weui-footer__link">帮助中心</a>
+            </p>
+        </div>
+    </div>    
+</div>  
+<input type="hidden" id="cover" value="">
+<div id="dialogs">
+    <div class="js_dialog" id="iosDialog" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a id="preview_link" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+            </div>
+        </div>
+    </div>
+    <div class="js_dialog" id="androidDialog" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">操作提示</strong></div>
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">知道了</a>
+                <a href="/manage/vip.html" class="weui-dialog__btn weui-dialog__btn_primary">升级VIP</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+var Edr = new Eleditor({
+    el: '#articleEditor',
+    placeHolder: '点我添加内容',
+    toolbars: [
+        'insertText',
+        'editText',
+        {
+            id: 'uploadImage',
+            name: '传图片',
+            handle: function(select, controll){}
+        },
+        'insertHr',
+        'deleteThis',       
+        'cancel'
+    ]
+});
+</script>
+<script>
+    $('#dialogs').on('click', '.weui-dialog__btn', function(){
+        $(this).parents('.js_dialog').fadeOut(200);
+    });
+
+    var showMsg = function(text){
+        $("#iosDialog .weui-dialog__bd").text(text);
+        $("#iosDialog").fadeIn(200);
+    }
+
+    var showMsgTwo = function(text){
+        $("#androidDialog .weui-dialog__bd").text(text);
+        $("#androidDialog").fadeIn(200);
+    }
+
+    $("#saveBtn").click(function(){
+        var content=Edr.getContent();
+        var title=$("#title").val();
+        var cover=$("#cover").val();
+        if(title==""){
+            showMsg("请输入标题");
+            return false;
+        }
+//        if(cover==""){
+//            showMsg("请上传封面");
+//            return false;
+//        }
+//        if(content==""){
+//            showMsg("请输入内容");
+//            return false;
+//        }
+//        var open=0;
+//        if($("input[name='switchCP']").is(':checked')){
+//            open=1;
+//        }
+        $.ajax({
+            type:'post',
+            url:'/pmker/api/article/save',
+            data:{title:title,cover:cover,content:content,open:open},
+            success:function(data){
+
+                if(data.error==0){
+                    $("#preview_link").attr('href',data.url);
+                    showMsg(data.msg);  
+                }else if(data.error==1){
+                    showMsg(data.msg);
+                }else if(data.error==2){
+                    showMsgTwo(data.msg);
+                }
+            }
+        });
+    });
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({{config.wxconfig|dump|safe}});
+    wx.ready(function () {
+        wx.hideMenuItems({
+            menuList: ["menuItem:copyUrl","menuItem:openWithQQBrowser","menuItem:openWithSafari","menuItem:originPage","menuItem:share:email","menuItem:share:QZone","menuItem:share:qq"]
+        });
+
+        $(".upload_cover").on('click',function(){
+            var obj=$(this);
+            wx.chooseImage({
+                count: 1,
+                sizeType: ['original', 'compressed'],
+                sourceType: ['album', 'camera'],
+                success: function (res) {
+                    var localIds = res.localIds;
+                    syncUpload(localIds,obj,'cover');
+                }
+            });
+        });
+
+        $(".Eleditor-uploadImage").on('click',function(){
+            var obj=$(".Eleditor-active");
+            wx.chooseImage({
+                count: 1,
+                sizeType: ['original', 'compressed'],
+                sourceType: ['album', 'camera'],
+                success: function (res) {
+                    var localIds = res.localIds;
+                    syncUpload(localIds,obj,'content');
+                }
+            });
+        });
+
+        var syncUpload = function(localIds,obj,location){
+            var localId = localIds.pop();
+            wx.uploadImage({
+                localId: localId,
+                isShowProgressTips: 1,
+                success: function (res) {
+                    var serverId = res.serverId;
+                    syncDownload(serverId,obj,location);
+                }
+            });
+        };
+
+        var syncDownload = function(serverId,obj,location){
+
+
+
+            $.ajax({
+                type:'post',
+                url:'/pmker/api/download',
+                data:{mediaid:serverId},
+                success:function(data){
+
+                    if(data.error==0){
+                        if(location=='content'){
+
+                            var _$upImg = $('<img src="' + data.url + '">');
+                            obj.after(_$upImg);
+                        }else{
+
+                            $("#cover").val(data.url);
+                            obj.html('<img src="' + data.url + '" />');
+                        }      
+                    }else{
+                        layer.msg(data.msg);
+                    }
+                }
+            });
+        };
+    
+        var shareData={
+            title: '易企微编辑器',
+            desc: '一键发布精美微信图文，快来试试！',
+            link: window.location.href,
+            imgUrl: "http://s.e7wei.com/8072033K55AL8LY.png"
+        };
+        wx.onMenuShareTimeline(shareData);
+        wx.onMenuShareAppMessage(shareData);        
+    });
+</script>
+</body>
+</html>

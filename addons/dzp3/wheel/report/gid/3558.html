@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>问题反馈</title>
+<meta name="keywords" content="问题反馈">
+<link href="/Public/css/mobile/mobile_wx.css" rel="stylesheet" type="text/css"/>
+<script src="/Public/js/jquery_1.10.2.min.js"></script>
+<link href="/Public/css/abus.css" rel="stylesheet">
+<style type="text/css">
+body {background: #f6f6f6;font-family: "微软雅黑";}
+.orange {color: white;background: #53a4fa;border: solid 1px #53a4fa;}
+.orange:hover {background: #6fC5FF;}
+.orange:active {background: #1A99FC;}
+.header {background: inherit;color: #606162;}
+.header_left {display: none;}
+.error {display:inline-block; margin-top:10px;}
+</style>
+<!-- baidu_start -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?0a3090a45d79e6f06817d797102a79b5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- baidu_end -->
+</head>
+<body>
+<header class="header">
+问题反馈
+</header>
+<div class="M_content Fbk">
+<form name="fk_form" id="fk_form" method="post" action="/wheel/reportinfo.html" enctype="multipart/form-data" >
+	<input type="hidden" name="fk_gid" value=""/>
+	<input type="hidden" name="fk_name" value=""/>
+	<div class="Fbk_con">
+		<p>反馈内容</p>
+		<textarea name="fk_content" class="fk_content"></textarea>
+	</div>
+	<div class="Fbk_con">
+		<p>联系方式</p>
+		<input type="text" placeholder="邮箱/手机" class="fk_emailormobile" name="fk_emailormobile" value="" />
+	</div>
+	<a href="javascript:;" id="submit" class="success button orange WJ_orange mot10">提 交</a>
+	<label class="error"></label>
+</form>
+</div>
+<script type="text/javascript ">
+$(function(){
+	$('textarea').val('');
+	$('#submit').click(function(e){
+		e.stopPropagation();
+		if(($('.fk_content').val()=='' && $('.fk_emailormobile').val()=='') || ($('.fk_content').val()=='')){
+			$('.error').show().html("请填写反馈内容");
+		}else if($('.fk_emailormobile').val()=='' && $('.fk_content').val()!=''){
+			$('.error').show().html("请填写联系方式");
+		}else{
+			send_msg();
+			return false;
+		}
+	});
+	$('body').click(function(){
+		$('.error').hide();
+	});
+});
+function checkLen(obj){
+	var maxChars = 1000;//最多字符数
+	if (obj.value.length > maxChars){
+		obj.value = obj.value.substring(0,maxChars);
+	}
+	var curr = maxChars - obj.value.length;
+	document.getElementById("count").innerHTML = curr.toString();
+}
+send_time = 0;
+TimeInterValId = null;
+function send_msg(){
+	$('#fk_form').submit();
+	return true;
+}
+function time_count(){
+	send_time--;
+	if (send_time == 0){
+		window.clearInterval(TimeInterValId);
+		TimeInterValId = null;
+	}
+}
+$('.error').hide();
+send_time = 15;
+TimeInterValId = window.setInterval("time_count()", 1000);
+$('#referrer').val(document.referrer);
+</script>
+</body>
+</html>

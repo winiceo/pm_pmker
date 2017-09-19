@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="{{config.cdn}}/static/Lib/weui/weui.min.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/base.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/main.css">
+<script src="{{config.cdn}}/static/Lib/jquery/jquery.min.js"></script>
+<script>
+//var _hmt = _hmt || [];
+//(function() {
+//  var hm = document.createElement("script");
+//  hm.src = "https://hm.baidu.com/hm.js?9ddc22103f924d5c08198c8db8950dfc";
+//  var s = document.getElementsByTagName("script")[0];
+//  s.parentNode.insertBefore(hm, s);
+//})();
+</script>
+</head>
+<body>
+<div class="page js_show">
+    <div class="page__bd">
+       
+      <div class="weui-cells" style="margin: 0;">
+      <div class="weui-cell weui-cell_access">
+              <div class="weui-cell__bd" style="text-align: center;">
+                  创建微信图文
+              </div>
+            </div>
+    </div>    
+      <div class="page__bd_spacing">
+      <div class="weui-cells">
+        <div class="weui-cell" style="padding: 0;">
+          <div class="weui-cell__bd">
+            <textarea id="url" rows="4"placeholder="长按粘贴微信文章链接" style="resize: none; width: 100%; font-size: 16px; padding: 10px; border:none;outline: none;"></textarea>
+          </div>
+        </div>
+      </div>
+      <p><a href="/manage/helpinfo/pid/103.html" style="display: block; color: #999; line-height: 40px; text-decoration: underline;">如何获取微信文章链接？</a></p>
+      </div>
+      <div class="page__bd_spacing" style="margin-top: 20px;">
+      <a href="javascript:;" class="weui-btn weui-btn_primary" id="collect" style="margin-top: 20px;">一键转载</a>
+      <a href="/pmker/make/article" class="weui-btn weui-btn_default" style=" color: #19a0fa; margin-top: 20px;">新建文章</a>
+       <a href="/pmker/make/card" class="weui-btn weui-btn_default" style=" color: #fb5f53; margin-top: 20px;">祝福贺卡</a>
+       <a href="/pmker/make/photo" class="weui-btn weui-btn_default" style=" color: #fb5f53; margin-top: 20px;">音乐相册</a>
+            <!-- <div style="text-align: center; margin-top: 20px;"><a href="/card/create.html" style="margin-top: 20px; text-align: center; color: #fb5f53;">祝福贺卡 ></a></div> -->
+    </div>
+    <div class="weui-footer" style="margin-top: 30px;">
+            <p class="weui-footer__links">
+                <a href="/manage/helpinfo/pid/104.html" class="weui-footer__link">内容规范</a>
+                <a href="/manage/help.html" class="weui-footer__link">帮助中心</a>
+            </p>
+        </div>
+        <div class="footer">
+            <div class="weui-tabbar">                
+                <a href="/pmker/hot" class="weui-tabbar__item">
+                    <img src="{{config.cdn}}/static/find.png" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">发现</p>
+                </a>
+                <a href="/pmker/home" class="weui-tabbar__item weui-bar__item_on" style="">
+                    <img src="{{config.cdn}}/static/make.png" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">创建</p>
+                </a>
+                <a href="/pmker/mine" class="weui-tabbar__item">
+                    <img src="{{config.cdn}}/static/me.png" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">我的</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dialogs">
+    <div class="js_dialog" id="iosDialog" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="preview_link">知道了</a>
+            </div>
+        </div>
+    </div>
+
+  <div class="js_dialog" id="androidDialog" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">操作提示</strong></div>
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">知道了</a>
+                <a href="/manage/vip.html" class="weui-dialog__btn weui-dialog__btn_primary">升级VIP</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  $('#dialogs').on('click', '.weui-dialog__btn', function(){
+        $(this).parents('.js_dialog').fadeOut(200);
+    });
+
+  var showMsg = function(text){
+    $("#iosDialog .weui-dialog__bd").text(text);
+    $("#iosDialog").fadeIn(200);
+  }
+
+  var showMsgTwo = function(text){
+    $("#androidDialog .weui-dialog__bd").text(text);
+    $("#androidDialog").fadeIn(200);
+  }
+
+  $("#collect").click(function(){
+    var obj=$(this);
+    if(!obj.hasClass('weui-btn_loading')){      
+      var url=$("#url").val();
+      if(url==""){
+        showMsg("文章链接不能为空，请参考以下教程复制链接");
+      }else{      
+        obj.addClass('weui-btn_loading').html('<i class="weui-loading"></i>文章采集中');
+        $.ajax({
+          type:"post",
+          url:"/manage/collect.html", 
+          data:{url:url},
+          success:function(data){
+            obj.removeClass('weui-btn_loading').html('创建');
+            if(data.error==0){
+              $("#preview_link").attr('href',data.url);
+              showMsg(data.msg);  
+            }else if(data.error==1){
+              showMsg(data.msg);
+            }else if(data.error==2){
+              showMsgTwo(data.msg);
+            }
+          }
+        });
+      }   
+    }   
+  });
+
+    $("#closeTopBar").click(function(){
+        $("#topBar").hide();
+    });
+</script>
+<script>
+  document.body.ontouchmove = function (e) {
+        e.preventDefault();
+  };
+
+  var startX = 0, startY = 0;
+    function touchSatrtFunc(evt) {
+        try{
+            var touch = evt.touches[0]; //获取第一个触点  
+            var x = Number(touch.pageX); //页面触点X坐标  
+            var y = Number(touch.pageY); //页面触点Y坐标  
+            //记录触点初始位置  
+            startX = x;
+            startY = y;
+        } catch (e) {
+            // alert('touchSatrtFunc：' + e.message);
+        }
+    }
+    document.addEventListener('touchstart', touchSatrtFunc, false);
+
+  var _ss = document.getElementById("js_article");
+    _ss.ontouchmove = function (ev) {
+      var _point = ev.touches[0],
+          _top = _ss.scrollTop;
+      var _bottomFaVal = _ss.scrollHeight - _ss.offsetHeight;
+        if (_top === 0) {
+            // 阻止向下滑动
+            if (_point.clientY > startY) {
+                ev.preventDefault();
+            } else {
+                // 阻止冒泡
+                // 正常执行
+                ev.stopPropagation();
+            }
+        } else if (_top === _bottomFaVal) {
+            // 到达底部
+            // 阻止向上滑动
+            if (_point.clientY < startY) {
+                ev.preventDefault();
+            } else {
+                // 阻止冒泡
+                // 正常执行
+                ev.stopPropagation();
+            }
+        } else if (_top > 0 && _top < _bottomFaVal) {
+            ev.stopPropagation();
+        } else {
+            ev.preventDefault();
+        }
+    };
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+    appId: 'wxd0f4209a69f7ca5e',
+    timestamp: '1505748997',
+    nonceStr: 'C830L2LOuvPidxwd',
+    signature: '1c964b872530b87daf2d0518f2756cde67e94737',
+    jsApiList: [
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'hideMenuItems'
+    ]
+  });             
+  wx.ready(function () {
+    wx.hideMenuItems({
+        menuList: ["menuItem:copyUrl","menuItem:openWithQQBrowser","menuItem:openWithSafari","menuItem:originPage","menuItem:share:email","menuItem:share:QZone","menuItem:share:qq"]
+    });
+  
+    var shareData={
+      title: '易企微编辑器',
+      desc: '一键发布精美微信图文，快来试试！',
+      link: window.location.href,
+      imgUrl: "http://s.e7wei.com/8072033K55AL8LY.png"
+    };
+    wx.onMenuShareTimeline(shareData);
+    wx.onMenuShareAppMessage(shareData);
+    
+  });
+</script>
+</body>
+</html>

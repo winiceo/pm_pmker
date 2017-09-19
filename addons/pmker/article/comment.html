@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title>易企微编辑器</title>
+<link rel="stylesheet" href="{{config.cdn}}/static/Lib/weui/weui.min.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/base.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Home/css/main.css">
+<link rel="stylesheet" href="{{config.cdn}}/static/Lib/layer/skin/layer.css">
+<script src="{{config.cdn}}/static/Lib/jquery/jquery.min.js"></script>
+<script src="{{config.cdn}}/static/Lib/layer/layer.js"></script>
+<style>
+    textarea,textarea:focus{ outline: none; width: 100%; resize: none; border: none; background: #fff; font-size: 14px; }
+</style>
+<script>
+//var _hmt = _hmt || [];
+//(function() {
+//  var hm = document.createElement("script");
+//  hm.src = "https://hm.baidu.com/hm.js?9ddc22103f924d5c08198c8db8950dfc";
+//  var s = document.getElementsByTagName("script")[0];
+//  s.parentNode.insertBefore(hm, s);
+//})();
+</script>
+</head>
+<body>
+<div class="page js_show">
+    <div class="page__bd">
+        <div class="weui-cells" style="margin: 0;">
+            <a class="weui-cell weui-cell_access" href="javascript:;" onclick="javascript:history.back(-1)">
+            <span class="back_icon"><img src="{{config.cdn}}/static/left.png" width="12"></span>
+            <div class="weui-cell__bd" style="text-align: center;">
+                留言评论
+            </div>
+            </a>
+        </div>
+        <div class="weui-cells__title">内容</div>
+        <div class="weui-cells" style="padding: 4px;">
+            <textarea id="content" cols="30" rows="8"></textarea>
+        </div>
+        <div class="weui-cells" style="padding-left: 20px; padding-right: 20px;">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" id="postReport">提交</a>
+        </div>
+    </div>
+</div>
+<input type="text" id="pid" value="2159">
+<input type="text" id="oid" value="{{config.article.objectId}}">
+<div id="dialogs">
+    <div class="js_dialog" id="iosDialog" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+            </div>
+        </div>
+    </div>
+    <div class="js_dialog" id="iosDialog1" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">友情提醒</strong></div>
+            <div class="weui-dialog__bd"></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" id="del_cancel">返回</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="del_sure">接收</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#dialogs').on('click', '.weui-dialog__btn', function(){
+        $(this).parents('.js_dialog').fadeOut(200);
+    });
+
+    var showMsg = function(text){
+        $("#iosDialog .weui-dialog__bd").text(text);
+        $("#iosDialog").fadeIn(200);
+    }
+
+    var showMsg2 = function(text){
+        $("#iosDialog1 .weui-dialog__bd").text(text);
+        $("#iosDialog1").fadeIn(200);
+    }
+
+    $("#postReport").click(function(){
+        layer.load(1);
+        var pid=$("#pid").val();
+        var oid=$("#oid").val();
+        var content=$("#content").val();
+        if(content==""){
+            layer.closeAll();
+            layer.msg("请输入内容");
+            return false;
+        }
+        $.ajax({
+            type:'post',
+            url:'/pmker/api/comment/save',
+            data:{oid:oid,pid:pid,content:content},
+            success:function(data){
+                layer.closeAll();
+                if(data.error==0){
+                    $("#del_cancel").attr('href',data.url);
+                    $("#del_sure").attr('href',data.subscribeurl);
+                    showMsg2(data.msg);
+                }else{
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    });
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        appId: 'wxd0f4209a69f7ca5e',
+        timestamp: '1505749840',
+        nonceStr: 'tdpMuuGYAAyMIOLw',
+        signature: '22f097b408ba614235b6440304271b4c85a2d8c9',
+        jsApiList: [
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'hideMenuItems'
+        ]
+    });             
+    wx.ready(function () {
+        wx.hideMenuItems({
+            menuList: ["menuItem:copyUrl","menuItem:openWithQQBrowser","menuItem:openWithSafari","menuItem:originPage","menuItem:share:email","menuItem:share:QZone","menuItem:share:qq"]
+        });
+    
+        var shareData={
+            title: '易企微编辑器',
+            desc: '一键发布精美微信图文，快来试试！ \n分享来自『易企微编辑器』',
+            link: window.location.href,
+            imgUrl: "http://s.e7wei.com/8072033K55AL8LY.png"
+        };
+        wx.onMenuShareTimeline(shareData);
+        wx.onMenuShareAppMessage(shareData);        
+    });
+</script>
+</body>
+</html>

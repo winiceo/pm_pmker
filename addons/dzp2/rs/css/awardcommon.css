@@ -1,0 +1,292 @@
+#save {
+    width: 85%;
+    margin: 9px auto;
+    border: 0;
+    margin-top: -2px
+}
+
+.close-holder {
+    display: none
+}
+
+.lbcontent {
+    background: 0;
+    margin: 0
+}
+
+.ins-span {
+    display: block;
+    color: #fff;
+    border-bottom: #999 2px dashed;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold
+}
+
+.info-span {
+    display: block;
+    color: #fff;
+    padding-left: 10px;
+    font-weight: bold;
+    margin-bottom: 2px
+}
+
+.info-sub-span {
+    border-bottom: #999 2px dashed;
+    display: block;
+    color: #fff;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: .8em
+}
+
+.content-div {
+    padding: 10px
+}
+
+.content-div label {
+    color: #fff;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 2px;
+    font-size: .8em
+}
+
+.content-div textarea {
+    background: transparent;
+    width: 100%;
+    resize: none;
+    border: 1px solid #666;
+    height: 86px;
+    color: #fff
+}
+
+.content-div input[type='text'] {
+    background: transparent;
+    border: 1px solid #666;
+    height: 25px;
+    width: 100%;
+    color: #fff;
+    font-size: .9em;
+    padding: 4px
+}
+
+.warning-div {
+    margin-top: 40px
+}
+
+.warning-label {
+    display: inline !important;
+    color: #fff3b6 !important;
+    font-size: .8em
+}
+
+#warning-checkbox {
+    vertical-align: middle
+}
+
+.warning-info-div {
+    color: #fff3b6;
+    border: 2px dotted #fff3b6;
+    border-style: dashed;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: .8em
+}
+
+.content-span {
+    display: block;
+    text-indent: 2em;
+    color: #fff;
+    max-height: 376px;
+    overflow: auto;
+    margin: 10px 0
+}
+
+.instruction {
+    max-height: 376px;
+    margin-top: -82%
+}
+
+.award-li {
+    height: 60px;
+    margin: 20px 0;
+    border: 1px #797171;
+    border-style: double;
+    padding: 18px
+}
+
+.pname-div {
+    margin: 10px 0;
+    color: #fff
+}
+
+.pname-div span {
+    color: #fff
+}
+
+.state {
+    font-size: .8em;
+    color: #ffa300;
+    display: block;
+    border-top: 1px dashed #999;
+    padding-top: 10px
+}
+
+.award-div {
+    max-height: 376px;
+    overflow: auto
+}
+
+#cancel {
+    background-color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%
+}
+
+.info-div {
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: auto;
+    right: 0;
+    padding: 15px;
+    max-height: 500px;
+    overflow: auto;
+    bottom: 0
+}
+
+.no-award-div {
+    color: #fff;
+    text-align: center;
+    margin: 36px
+}
+
+#bangboss-bottom {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    line-height: 42px;
+    background-color: #a0393d;
+    font-size: 15px
+}
+
+#bangboss-bottom a {
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: underline;
+    padding-bottom: 1px
+}
+
+#lotteryprize {
+    background-image: url("../images/award/myaward.png");
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    bottom: 50px;
+    right: 25%
+}
+
+#lotteryprize .lottery-p {
+    width: 12px;
+    height: 12px;
+    background-color: #ff3d31;
+    border-radius: 6px;
+    margin-left: 37px;
+    margin-top: -1px
+}
+
+.lottery-tousu {
+    width: 33px;
+    padding: 0 9px;
+    line-height: 23px;
+    position: absolute;
+    right: 10%;
+    bottom: 50px;
+    font-size: 60%;
+    background-color: #a03939 !important
+}
+
+.common-btn {
+    width: 89% !important;
+    background-color: #2596e6 !important;
+    border-radius: 3px !important
+}
+
+.decorated-div {
+    height: 93%;
+    width: 89%;
+    border: 2px solid #c1b480;
+    margin: 0 auto;
+    border-style: dashed;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    display: flex;
+    display: table
+}
+
+#cont {
+    background-image: url("../images/award/roulette-bg-show.png");
+    width: 324px;
+    height: 180px;
+    margin: 0 auto;
+    position: relative;
+    top: -17px;
+    padding-top: 9px;
+    background-repeat: no-repeat
+}
+
+#p-img {
+    margin-top: 15px;
+    text-align: center
+}
+
+#p-desc {
+    font-weight: bold;
+    margin-top: -2px;
+    text-align: center
+}
+
+.lottery-info {
+    color: #f64a42
+}
+
+.award-btn-span, .sure-btn-span {
+    display: block;
+    height: 85%;
+    width: 92%;
+    margin: 0 auto;
+    border: 1px solid #c01a26;
+    border-radius: 5px;
+    border-style: dashed
+}
+
+.award-btn, .sure-btn-div {
+    display: block;
+    width: 50%;
+    height: 32px;
+    box-shadow: 3px 5px 7px 0 rgba(154, 53, 53, 0.46);
+    padding: 5px 0 0 0;
+    line-height: 24px;
+    background-color: #d22b3f;
+    margin: -11px auto 0 auto;
+    position: relative;
+    top: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.award-image {
+    width: 70px;
+    height: 70px
+}
+
+.error {
+    border-color: rgba(240, 72, 62, 0.7) !important
+}

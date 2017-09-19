@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/public/addons/lib/vue-ydui/dist/ydui.px.css">
+    <!-- 引入rem自适应类库 -->
+ </head>
+ <style>
+  [v-cloak] {
+  display: none;
+}
+</style>
+<body>
+<div id="app" v-cloak>
+    
+    <yd-cell-group>
+            <yd-cell-item>
+                <span slot="left">奖项：</span>
+                <span slot="right">${draw.grade}</span>
+            </yd-cell-item>
+            <yd-cell-item>
+                <span slot="left">奖品名称</span>
+                <span slot="right">${draw.title}</span>
+            </yd-cell-item>
+             <yd-cell-item>
+                <span slot="left">中奖人</span>
+                <span slot="right">${page.nickname}</span>
+            </yd-cell-item>
+            <yd-cell-item v-if='draw.desc'>
+                <span slot="left">备注</span>
+                <span slot="right">${draw.desc}</span>
+            </yd-cell-item>
+        </yd-cell-group>
+    <yd-cell-group  >
+        <yd-cell-item>
+            <yd-textarea slot="right" v-model='remark' placeholder="商家备注信息" maxlength="100"></yd-textarea>
+        </yd-cell-item>
+    </yd-cell-group>
+    <yd-button size="large" type="primary" @click.native="save">确认核销</yd-button>
+
+</div>
+<!-- 引入 Vue -->
+<script src="/public/addons/lib/vue/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="/public/addons/lib/vue-ydui/dist/ydui.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var page=JSON.parse('{{config.page|dump|safe}}')
+     
+</script>
+<script>
+    new Vue({
+        delimiters: ['${', '}'],
+        el: '#app',
+        data(){
+            return{
+                remark:'',
+                page:page,
+                draw:page.draw,
+            }
+        },
+        methods: {
+            save() {
+                var vm=this;
+                axios.post('/api/v2/draw/check/'+this.page.objectId, {
+                     
+                        remark: vm.remark 
+                     
+                })
+                .then(function(res){
+                  vm.$dialog.alert({mes: '核销成功'});
+                  window.location.href='/usercenter/index'
+                })
+                .catch(function(err){
+                  vm.$dialog.alert({mes: '操作失败'});
+                });
+ 
+                
+            }
+        },
+        mounted(){
+            //this.$dialog.alert({mes: '234234'});
+
+        }
+    })
+</script>
+</body>
+</html>

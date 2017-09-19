@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name = "format-detection" content = "telephone=no">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+
+    <meta name="keywords" content="微信抽奖,微活动抽奖,年会抽奖,大转盘,微信刮刮乐,免费抽奖软件,在线抽奖软件,第三方抽奖平台,互动营销,微营销,微信营销,微信活动推广">
+    <meta name="description" content="微营销新玩法,免费一键创建微信抽奖活动,能有效过滤僵尸粉、抽奖控,提高用户品牌传播力,增强粉丝互动,提升转化率。">
+<title>{{page.name}}</title>
+
+<link type="text/css" rel="stylesheet" href="{{config.cdn}}/rs/css/commonm.css?v=2017-09-06T02:03:55Z"/>
+<link type="text/css" rel="stylesheet" href="{{config.cdn}}/rs/css/roulette.css?v=2017-09-06T02:03:55Z"/>
+<link type="text/css" rel="stylesheet" href="{{config.cdn}}/rs/css/awardcommon.css?v=2017-09-06T02:03:55Z"/>
+</head>
+<body>
+<div id="containor">
+   <div id="lotterydesc"></div>
+   <div id="lotteryname"></div>
+   <div id="lotterycontent">
+       <div id="lotterycontent-ul">
+           <ul>
+               <li class="lottery-unit lottery-unit-0">
+                   <div class="bg">
+                       <div class="lottery-prize-0 lottery-prize"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-1">
+                    <div class="bg">
+                       <div class="lottery-prize lottery-prize-1"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-2">
+                     <div class="bg">
+                       <div class="lottery-prize lottery-prize-2"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-7">
+                     <div class="bg">
+                       <div class="lottery-prize lottery-prize-7"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-start">
+                    <div class="bg">
+                       <p>开始抽奖</p>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-3">
+                     <div class="bg">
+                       <div class="lottery-prize lottery-prize-3"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-6">
+                     <div class="bg">
+                       <div class="lottery-prize lottery-prize-6"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-5">
+                     <div class="bg">
+                       <div class="lottery-prize lottery-prize-5"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+               <li class="lottery-unit lottery-unit-4">
+                      <div class="bg">
+                       <div class="lottery-prize lottery-prize-4"><img alt="" src=""></div>
+                       <span>谢谢惠顾</span>
+                   </div>
+               </li>
+           </ul>
+       </div> 
+   </div>
+   <div id="lotteryprize">
+         <div class="lottery-p hide">
+              
+         </div> 
+   </div>
+
+</div>
+<div id="overlay" class="overlay hide"></div>
+<div id="lightBox" class="lightbox hide">
+<div id="lbContent" class="lbcontent clearfix"></div>
+</div>
+<div class="hide" id="divtmp"></div>
+<div class="instruction hide" id="myaward">
+  <span class="ins-span">我的奖品</span><!-- 中奖图片 -->
+  <div class="award-div">
+  <ul class="award-ul">
+  <li class="no-award-li">
+  <div class="no-award-div">暂无中奖信息</div>
+  </li>
+  </ul></div><!-- 中奖信息 -->
+  <div id="sure" class="btn common-btn">确定</div><!-- 处理按钮 -->
+</div>
+{{  page | dump |safe }}
+<script type="text/javascript" src="{{config.cdn}}/rs/js/head.load.min.js?v=2017-09-06T02:03:55Z"></script>
+<script type="text/javascript">
+var IMAGEURL="http://bangboss-lottery.oss-cn-hangzhou.aliyuncs.com/"
+var Page=  {{page | dump |safe}}
+
+var LOTTERYSETTING = {
+    "id": "59b66a560cf2f5887f677015",
+    "UID": "57e744ca0cf208fad2cb3c2e",
+    "SID": "59b66a0f0cf2f5887f677012",
+    "NAME": "234",
+    "TYPE": "phone",
+    "CTIME": 1505126998197,
+    "INS": "234",
+    "ATYPE": "0",
+    "LTYPE": "0",
+    "LNUMBER": 1,
+    "WEIXIN": "1",
+    "LDATE": 1507718976000,
+    "LDATESTR": "2017-10-11 18:49:36",
+    "INFO": ["NAME"],
+    "STATUS": "1",
+    "INFOFROM": "0",
+    "ISDANGER": "true",
+    "AWARDS": [{
+        "PNAME": "234",
+        "PROBA": 33.0,
+        "MAXNUMBER": 234.0,
+        "PIMAGE": "",
+        "ID": "59b66a560cf2f5887f677013"
+    }, {"PNAME": "342", "PROBA": 33.0, "MAXNUMBER": 342.0, "PIMAGE": "", "ID": "59b66a560cf2f5887f677014"}],
+    "CNTLIMIT": 0,
+    "CNTFREQ": 0
+};
+var OPENID="abcdefg";
+var LEVEL="level_1";
+var ENTRY="error";
+var CDN='{{config.cdn}}'
+var IMAGES='{{config.cdn}}/rs/images'
+head.js("{{config.cdn}}/rs/js/jquery-1.7.2.min.js",
+        "{{config.cdn}}/rs/js/utils.js?v=2017-09-06T02:03:55Z",
+        "{{config.cdn}}/rs/js/roulette.js?v=2017-09-06T02:03:55Z");
+</script>
+<script>
+
+</script>
+</body>
+</html>
