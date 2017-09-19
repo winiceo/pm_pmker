@@ -66,19 +66,18 @@
         methods: {
             save() {
                 var vm=this;
-                axios.post('/api/v2/draw/check/'+this.page.objectId, {
+                axios.post('/pm/api/v2/draw/check/'+this.page.objectId, {
                      
                         remark: vm.remark 
                      
                 })
                 .then(function(res){
                   vm.$dialog.alert({mes: '核销成功'});
-                  window.location.href='/usercenter/index'
+                  window.location.href='/pm/usercenter/index'
                 })
                 .catch(function(err){
                   vm.$dialog.alert({mes: '操作失败'});
-                });
- 
+                }); 
                 
             }
         },
