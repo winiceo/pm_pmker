@@ -26,4 +26,4 @@ alab
 bower_components
 doc
 deploy
-
+.env

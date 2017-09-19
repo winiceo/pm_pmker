@@ -115,13 +115,13 @@ const deploy = {
     // });
 
     transport.exec('pwd');
-    transport.exec('pm2 desc account_server');
-
-    transport.exec('pm2 desc hall_server');
-
-    transport.exec('pm2 desc majiang_server');
-
-    transport.exec('pm2 desc dealer_api');
+    // transport.exec('pm2 desc account_server');
+    //
+    // transport.exec('pm2 desc hall_server');
+    //
+    // transport.exec('pm2 desc majiang_server');
+    //
+    // transport.exec('pm2 desc dealer_api');
 
 
     // transport.exec(`NODE_ENV=production forever restart -c nodejs --spinSleepTime 10000 ${join(currentPath, 'index.js')} || NODE_ENV=production forever start -c nodejs --spinSleepTime 10000 ${join(currentPath, 'index.js')}`, { silent: true })
