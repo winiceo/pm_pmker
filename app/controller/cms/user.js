@@ -24,20 +24,16 @@
 'use strict';
 
 module.exports = app => {
-    class homeController extends app.Controller {
+  class homeController extends app.Controller {
 
-        * login() {
-
-
-            yield this.ctx.render('genv/user/login.html');
-        }
+    * login() {
 
 
-
-
+      yield this.ctx.render('genv/user/login.html');
     }
-    return homeController;
+
+
+  }
+  return homeController;
 };
-
-
 

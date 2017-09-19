@@ -19,11 +19,11 @@ function NodeRedisPubsub(options) {
   const auth = options.auth;
   const redisUrl = options.url;
 
-  options.port = options.port || 6379;   // 6379 is Redis' default
+  options.port = options.port || 6379; // 6379 is Redis' default
   options.host = options.host || '127.0.0.1';
 
-    // Need to create two Redis clients as one cannot be both in receiver and emitter mode
-    // I wonder why that is, by the way ...
+  // Need to create two Redis clients as one cannot be both in receiver and emitter mode
+  // I wonder why that is, by the way ...
   if (!redisUrl) {
     this.emitter = redis.createClient(options);
     this.receiver = redis.createClient(options);

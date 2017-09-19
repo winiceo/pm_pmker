@@ -7,18 +7,18 @@ const Fans = Parse.Object.extend('fans');
 const querystring = require('querystring');
 
 module.exports = app => {
-    /**
+  /**
      *  粉丝用户相关
      */
-    class FansService extends app.Service {
-        constructor(ctx) {
-            super(ctx);
-            this.config = this.ctx.app.config;
-
-        }
-
+  class FansService extends app.Service {
+    constructor(ctx) {
+      super(ctx);
+      this.config = this.ctx.app.config;
 
     }
 
-    return FansService;
+
+  }
+
+  return FansService;
 };

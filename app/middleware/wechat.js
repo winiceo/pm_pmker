@@ -5,24 +5,24 @@
 
 const wechatLib = require('../lib/wechat');
 const Parse = require('../lib/parse');
-const env=require('../../config/environment')
+const env = require('../../config/environment');
 module.exports = (options, app) => {
 
-    const wechat=wechatLib(app)
-    // console.log(app.config)
-    // config= {
-    //         token: env.get('WECHAT_TOKEN'),
-    //         appid: env.get('WECHAT_APPID'),
-    //         //encodingAESKey: env.get('WECHAT_ENCODINGAESKEY'),
-    //         appsecret: env.get('WECHAT_APPSECRET'),
-    //
-    //         pay: {
-    //             partnerKey: '33',
-    //             mchId: '33',
-    //             notifyUrl: '',
-    //             pfx: ''
-    //     }
-    // }
+  const wechat = wechatLib(app);
+  // console.log(app.config)
+  // config= {
+  //         token: env.get('WECHAT_TOKEN'),
+  //         appid: env.get('WECHAT_APPID'),
+  //         //encodingAESKey: env.get('WECHAT_ENCODINGAESKEY'),
+  //         appsecret: env.get('WECHAT_APPSECRET'),
+  //
+  //         pay: {
+  //             partnerKey: '33',
+  //             mchId: '33',
+  //             notifyUrl: '',
+  //             pfx: ''
+  //     }
+  // }
 
 
   return wechat.middleware(function* () {

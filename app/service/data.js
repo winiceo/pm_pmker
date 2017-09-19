@@ -4,7 +4,7 @@
 'use strict';
 const moment = require('moment');
 module.exports = app => {
-    /**
+  /**
      *  用户相关
      */
   class DataService extends app.Service {
@@ -278,7 +278,7 @@ module.exports = app => {
     }
 
 
-    }
+  }
 
   return DataService;
 };

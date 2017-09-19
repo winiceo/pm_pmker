@@ -84,7 +84,7 @@ Payment.prototype.getJsPayRequestParams = function* getJsPayRequestParams(prepay
 
   params.paySign = this._getSign(params);
 
-    // see: https://mp.weixin.qq.com/wiki?action=doc&id=mp1421141115&t=0.5826723026485408&token=&lang=zh_CN#wxzf1
+  // see: https://mp.weixin.qq.com/wiki?action=doc&id=mp1421141115&t=0.5826723026485408&token=&lang=zh_CN#wxzf1
   params.timestamp = params.timeStamp;
   delete params.timeStamp;
 
@@ -429,12 +429,12 @@ Payment.prototype.middleware = function middleware() {
   }
 
   return function* wechatPayNotify(next) {
-        // 这里面的this指针指向的是 koa context
+    // 这里面的this指针指向的是 koa context
     if (this.method !== 'POST') {
       return fail.call(this, 'NotImplemented');
     }
 
-        // through co-wechat-body parse middleware
+    // through co-wechat-body parse middleware
     const body = this.request.body;
 
     if (!body) {
@@ -454,7 +454,7 @@ Payment.prototype.middleware = function middleware() {
       }
     };
 
-        // order pay status deal by yourself.
+    // order pay status deal by yourself.
     yield next;
   };
 };

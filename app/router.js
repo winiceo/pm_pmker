@@ -100,7 +100,6 @@ module.exports = app => {
   app.get('/usercenter/index', 'usercenter.user.index');
 
 
-
   // 测试用非正式
 
   // app.get('/api/v1/test/:id', 'api.activity.test')

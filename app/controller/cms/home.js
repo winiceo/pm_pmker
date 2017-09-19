@@ -24,19 +24,15 @@
 'use strict';
 
 module.exports = app => {
-    class homeController extends app.Controller {
+  class homeController extends app.Controller {
 
-        * index() {
+    * index() {
 
-            yield this.ctx.render('admin/index.html');
-        }
-
-
-
-
+      yield this.ctx.render('admin/index.html');
     }
-    return homeController;
+
+
+  }
+  return homeController;
 };
-
-
 

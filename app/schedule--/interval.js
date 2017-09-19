@@ -11,5 +11,5 @@ exports.schedule = {
 };
 
 exports.task = function* (ctx) {
-    // ctx.logger.info('all&&interval');
+  // ctx.logger.info('all&&interval');
 };

@@ -15,7 +15,7 @@ module.exports = (options, app) => {
     partnerKey: env.get('WECHAT_PAY_KEY'),
     appId: env.get('WECHAT_APPID'),
     mchId: env.get('WECHAT_PAY_MID') + '',
-    notifyUrl: env.get('BASE_URL')+'/api/pay/notify',
+    notifyUrl: env.get('BASE_URL') + '/api/pay/notify',
     pfx: fs.readFileSync(app.config.certpfx),
   };
   const wxpay = new wechatPay(initConfig);

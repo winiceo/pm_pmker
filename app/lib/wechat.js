@@ -11,9 +11,8 @@ const Pay = require('co-wechat-payment');
 const ONE_DAY = 1000 * 60 * 60 * 24;
 
 
-
 function createWX(app) {
-  const config=app.config.wechat
+  const config = app.config.wechat;
   assert(config.appid, '[egg-wechat] appid is required on config');
   app.coreLogger.info('[egg-wechat] init %s', config.appid);
 
@@ -128,4 +127,4 @@ function createWX(app) {
 
   return wx;
 }
-module.exports = createWX
+module.exports = createWX;

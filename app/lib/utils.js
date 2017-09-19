@@ -53,8 +53,8 @@ exports.convertBufferToString = function(value, encoding) {
     const res = Array(length);
     for (let i = 0; i < length; ++i) {
       res[i] = value[i] instanceof Buffer && encoding === 'utf8'
-                ? value[i].toString()
-                : exports.convertBufferToString(value[i], encoding);
+        ? value[i].toString()
+        : exports.convertBufferToString(value[i], encoding);
     }
     return res;
   }
@@ -75,8 +75,8 @@ exports.convertBufferToString = function(value, encoding) {
  * @private
  */
 exports.wrapMultiResult = function(arr) {
-    // When using WATCH/EXEC transactions, the EXEC will return
-    // a null instead of an array
+  // When using WATCH/EXEC transactions, the EXEC will return
+  // a null instead of an array
   if (!arr) {
     return null;
   }
