@@ -630,7 +630,7 @@
                     if (rotate.flag_click) {
                         $.ajax({
                             type: 'POST',
-                            url: "/lottery/draw/"+Activity.objectId,
+                            url: "/pm/lottery/draw/"+Activity.objectId,
                             data: {userstate: userstate,activityid:Activity.objectId},
                             success: function (data) {
                                 event.preventDefault();
@@ -698,7 +698,7 @@
 
         $("#closebtn3").click(function () {
             $("#gift").hide();
-            window.location.href='/usercenter/index'
+            window.location.href='/pm/usercenter/index'
         });
 
         $("#closebtn4").click(function () {
