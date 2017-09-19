@@ -1,0 +1,17 @@
+{
+
+  apps : [
+    {
+      name      : "pm_pmker",
+      script    : "index.js",
+      cwd: "/pmker/pmker/current/",
+      env: {
+        COMMON_VARIABLE: "true"
+      },
+      env_production : {
+        NODE_ENV: "production"
+      }
+    }
+
+  ]
+}
