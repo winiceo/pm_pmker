@@ -15,7 +15,7 @@ module.exports = appInfo => {
                 watchDirs: ['app', 'config', 'conf', 'index.js', 'node_modules', 'egg-wechat'],
             },
             siteFile: {
-                '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/web/asset/images/favicon.ico'))
+                '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'public/favicon.ico'))
 
             },
             static: {
@@ -23,20 +23,20 @@ module.exports = appInfo => {
 
                 dir: [path.join(appInfo.baseDir, 'addons/'), path.join(appInfo.baseDir, 'public/')]
             },
-            vuessr: {
-                layout: path.join(appInfo.baseDir, 'app/web/view/layout.html'),
-                injectRes: [
-                    // {
-                    //  inline: true,
-                    //  url: path.join(app.baseDir, 'app/web/framework/inject/inline.js')
-                    // },
-                    // {
-                    //  inline: true,
-                    //  manifest: true,
-                    //  url: 'pack/inline.js'
-                    // }
-                ]
-            },
+            // vuessr: {
+            //     layout: path.join(appInfo.baseDir, 'app/web/view/layout.html'),
+            //     injectRes: [
+            //         // {
+            //         //  inline: true,
+            //         //  url: path.join(app.baseDir, 'app/web/framework/inject/inline.js')
+            //         // },
+            //         // {
+            //         //  inline: true,
+            //         //  manifest: true,
+            //         //  url: 'pack/inline.js'
+            //         // }
+            //     ]
+            // },
             security: {
                 csrf: {
                     enable: false,
