@@ -27,3 +27,4 @@ bower_components
 doc
 deploy
 .env
+.env.exapmle
