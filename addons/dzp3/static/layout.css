@@ -1,0 +1,13 @@
+
+.lottery_box{margin-bottom:3%;}
+.lottery_turntable{-webkit-transform:scale(.96);width:300px;margin:0 auto;height:300px;background-color:#ff5859;border-radius:50%;box-shadow:-1px 2px 4px #ff5758;}
+.turntable{-webkit-animation:rotate 7s linear both reverse infinite;height:100%;background:url("../img/dot.png") no-repeat center center;background-size:92%;}
+#lotterys{width:84%;margin:0 auto;position:absolute;left:8%;top:8%;z-index:2;-webkit-transform:rotate(-90deg);}
+#go{-webkit-transform-origin:center;width:100px;height:100px;background:url('../img/go.png') no-repeat center center;background-size:100%;position:absolute;left:50%;top:50%;margin:-55px 0 0 -50px;z-index:99998;}
+
+/*animation*/
+.dy02{-webkit-animation-delay:.2s;}
+.dy05{-webkit-animation-delay:.5s;}
+.dy08{-webkit-animation-delay:.8s;}
+@-webkit-keyframes fd { from {-webkit-opacity:0;opacity:0;} to {-webkit-opacity:1;opacity:1;} }
+@-webkit-keyframes rotate { from { -webkit-transform:rotate(180deg); } to { -webkit-transform:rotate(0deg); } }
