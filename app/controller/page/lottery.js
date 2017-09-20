@@ -55,9 +55,9 @@ module.exports = app => {
           nickname: options.userInfo.nickname,
           headimgurl: options.userInfo.headimgurl,
           time: '2017-09-12 16:10:00',
-          prompt: '\u6ee1100\u5143\u53ef\u7528',
+          prompt: res.title,
           plevel: res.grade,
-          pname: res.name,
+          pname: res.title,
           num: 24,
           error: 0,
           rid: res.index

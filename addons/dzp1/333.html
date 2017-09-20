@@ -23,136 +23,68 @@
     </script>
 </head>
 <body>
-<div  class=" m-wrapper">
-    <div class="bg-b"></div>
-    <!--礼花-->
-    <div class="an-bg toBig"></div>
-    <!--start:大转盘抽奖-->
-    <div class="contain clearfix">
-        <div class="title"></div>
-        <div class="con-l">
-            <div class="item">
-                <!--跑马灯-->
-                <div class="dots" id="dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <!--转盘-->
-                <canvas id="lottery" width="450" height="450"></canvas>
-                <div  class="pointer" >
-                    <img src="{{config.cdn}}/images/zhuanpan2016/m-zhen.png"/>
-                    <div class="user-pic"><img width="74" height="74" src="http://wx.qlogo.cn/mmopen/vi_32/NiakQJN4uSLMBZxBrKecWlHMicJ0G3Z3pzJxNYM0iac9vFdNWU7ULyiaN5oYJGJ03Hcu9kHyibNG5wlQzCU3Zicp35ag/0"></div>
-                </div>
+<div class="contain clearfix">
+    <div class="title"></div>
+    <div class="con-l">
+        <div class="item">
+            <!--跑马灯-->
+            <div class="dots" id="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <!--开始按钮-->
-            <div class="btn-shadow"><a href="javascript:void(0);" class="btn js_btnStart"></a></div>
-
+            <!--转盘-->
+            <canvas id="lottery" width="450" height="450"></canvas>
+            <div  class="pointer" >
+                <img src="{{config.cdn}}/images/zhuanpan2016/m-zhen.png"/>
+                <div class="user-pic js_btnStart"><img width="74" height="74" src="http://wx.qlogo.cn/mmopen/vi_32/NiakQJN4uSLMBZxBrKecWlHMicJ0G3Z3pzJxNYM0iac9vFdNWU7ULyiaN5oYJGJ03Hcu9kHyibNG5wlQzCU3Zicp35ag/0"></div>
+            </div>
         </div>
-    </div>
-    <div class="logo"></div>
-    <!--end:大转盘抽奖-->
-
-    <!--start:操作提示-->
-    <div class="item3">
-        <div class="mask"></div>
-        <div class="mess">
-            <img src="{{config.cdn}}/images/zhuanpan2016/line.png">
-            <img src="{{config.cdn}}/images/zhuanpan2016/hand.png" >
-            <p>拨动转盘进行游戏</p>
-        </div>
-    </div>
-    <!--end:操作提示-->
-
-    <!--start:中奖信息-->
-    <div class="item4 hidden js_prizeUser">
-        <div class="mask mask2"></div>
-        <div class="mask suc-mask sucMask"></div>
-        <div class="mess suc-mess ">
-            <h2>恭&nbsp;&nbsp;喜</h2>
-            <div class="user">
-                <div><img class="js_userAvatar" src=""></div>
-                <p class="js_userName"></p>
-            </div>
-            <h3>获&nbsp;得</h3>
-            <div class="prize">
-                <div><img class="js_prizeCover" src=""></div>
-                <p class="js_prizeTitle"></p>
-            </div>
-            <a href="javascript:void(0);" class="shai-btn js_btnShare" >晒一晒</a>
-        </div>
+        <!--开始按钮-->
+        <div class="btn-shadow"><a href="javascript:void(0);" class="btn js_btnStart"></a></div>
 
     </div>
-    <!--end:中奖信息-->
-    <!--start:未中奖信息-->
-    <div class="item4 hidden js_prizeFail">
-        <div class="mask mask2"></div>
-        <div class="mess fail-mess">
-            <h2>很&nbsp;&nbsp;遗&nbsp;&nbsp;憾</h2>
-            <div class="user">
-                <div><img class="js_failUserAvatar" src=""></div>
-                <p class="js_failUserName"></p>
-            </div>
-            <div class="prize">
-                <p>您没有摇到奖品</p>
-                <p>继续加油哦!</p>
-            </div>
-
-        </div>
-    </div>
-    <!--end:未中奖信息-->
-
-    <!--start:温馨提示-->
-    <div class="item4 item5 hidden js_joined">
-        <div class="mask"></div>
-        <div class="mess">
-            <h2>温&nbsp;馨&nbsp;提&nbsp;示</h2>
-            <div >
-                <p>您已参与过此次互动</p>
-                <p>请把机会留给其他人~</p>
-            </div>
-            <img src="{{config.cdn}}/images/zhuanpan2016/logo.png" class="logo">
-        </div>
-    </div>
-    <!--end:温馨提示-->
-
-    <!--start:分享提示-->
-    <div id="guide" class="float-bg hidden">
-        <div class="float-tip"><img src="{{config.cdn}}/images/weixin_share_guide.png"></div>
-    </div>
-
 </div>
+afasdf<br>
+afasdf<br>
+afasdf<br>
+afasdf<br>
+afasdf<br>
+afasdf<br>
+afasdf<br>
+afasdf<br>
+afasdf<br>
 </body>
 <script src="{{config.cdn}}/js/m/socket.js"></script>
 <script>
 
 
-    var websocketUrl = "ws://localhost:7001/",
+    var websocketUrl = "ws://localhost:7001",
         companyId= "101039",
         hasJoin  = "",
         sessionId= "41a4vo3e5t9oho36to5h58oad7";
-    var   token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfdWlkIjoiNTkxMDIzODM5MzE0MDBkNmM3ZGY1NTA2IiwiaWF0IjoxNDk0OTIyNzYxfQ.kc9t24cQit7LtALbiQkVLxVuk7JLxgJVqftD5Qtl3ks';
+    var  token = '{{config.token}}'
 
     var ani = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 

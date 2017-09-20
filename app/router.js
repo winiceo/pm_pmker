@@ -28,6 +28,9 @@ module.exports = app => {
   // 活动页面处理
   app.get('/activity/:id', app.controller.page.activity.index);
 
+
+  app.get('/activity/test', app.controller.page.activity.test);
+
   // 文章类页面处理
   app.get('/pages/:id', app.controller.page.page.index);
 
@@ -38,7 +41,7 @@ module.exports = app => {
 
   // socket 相关
   // app.io.route('lottery', app.io.controllers.lottery);
-  // app.io.of('/').route('lottery', app.io.controllers.lottery);
+    app.io.of('/').route('lottery', app.io.controllers.lottery);
 
 
   // const wechat = app.middlewares.wechat();
@@ -64,7 +67,7 @@ module.exports = app => {
 
   // 后台活动api
   app.get('/api/v1/activity/list', checktoken, 'api.activity.list');
-  app.get('/api/v1/activity/get/:id', checktoken, 'api.activity.get');
+  app.get('/api/v1/activity/get/:id', 'api.activity.get');
   app.post('/api/v1/activity/save', checktoken, 'api.activity.save');
   app.post('/api/v1/activity/delete/:id', checktoken, 'api.activity.destoryActivity');
 

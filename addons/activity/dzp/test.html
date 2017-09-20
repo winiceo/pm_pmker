@@ -1,0 +1,24 @@
+<script src="{{config.cdn}}/js/m/socket.js"></script>
+<script>
+    var socket = io('ws://localhost:7001')
+    const token = '{{config.token}}'
+
+    socket.on('connect', () => {
+        socket.emit('lottery', { token: token,abc:2342342423 });
+
+//        socket.on('join', msg => {
+//            socket.emit('message', { abc: 'adfd' });
+//        });
+        socket.on('connections', msg => {
+            console.log('当前连接: %d', msg);
+        });
+    });
+    socket.on('message', msg => {
+        console.log(msg)
+        //socket.emit('234324', { token: token });
+        //socket.emit('message', { data: 'this is my hat', token: token });
+    });
+
+
+
+</script>

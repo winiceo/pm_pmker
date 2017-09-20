@@ -52,7 +52,7 @@ module.exports = app => {
       activity.id = id;
       const relation = activity.relation('award');
       const query = relation.query();
-      query.ascending('index');
+      query.ascending('createdAt');
       return yield query.find().then(function(awards) {
         if (awards) {
           const tmps = [];

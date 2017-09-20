@@ -21,9 +21,13 @@ module.exports = (options, app) => {
     //     token=this.cookies
     // }
     options.token = token;
-    let user = false;
+
+      //console.log(token)
+
+      let user = false;
     try {
       user = app.jwt.verify(token, app.config.jwt.secret);
+      //console.log(user)
       if (user) {
         this.user = user;
       }
@@ -35,7 +39,8 @@ module.exports = (options, app) => {
       if (this.isXHR) {
         return this.body = {
           code: 403,
-          message: '认证失败，请重新登录'
+          message: '认证失败，请重新登录',
+          options:options
         };
       } else {
         return this.redirect('/cms/login');

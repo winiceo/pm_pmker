@@ -35,7 +35,7 @@ exports.security = {
 };
 
 exports.io = {
-    enable: false,
+    enable: true,
     package: 'egg-socket.io',
 };
 exports.cors = {

@@ -3,13 +3,13 @@ module.exports = (app) => {
     yield* next;
     const { socket, packet } = this;
     socket.user = [];
-
+    console.log(packet[1])
     if (packet) {
       if (packet[1].token) {
         try {
-          const { _uid } = app.jwt.verify(packet[1].token, app.config.jwt.secret);
+         /// const { _uid } = app.jwt.verify(packet[1].token, app.config.jwt.secret);
 
-
+          const _uid=3333;
           if (_uid) {
             socket.uid = _uid;
             socket.user[_uid] = socket.id;
