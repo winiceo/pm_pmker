@@ -160,7 +160,7 @@ function lottery(){
 
     $.ajax({
         type: 'POST',
-        url: "/lottery/draw/"+Activity.objectId,
+        url: "/pm/lottery/draw/"+Activity.objectId,
         data: { activityid:Activity.objectId},
         success: function (data) {
             event.preventDefault();
