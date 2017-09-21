@@ -183,6 +183,9 @@
             'hideMenuItems'
         ]
     });
+    if(Activity.myLotteryNum<=0){
+        $(".box33").show();
+    }
     wx.ready(function () {
         document.getElementById("audio").play();
         wx.hideMenuItems({

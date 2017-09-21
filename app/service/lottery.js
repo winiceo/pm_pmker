@@ -31,6 +31,13 @@ module.exports = app => {
         }
 
         /**
+         * 清空活动抽奖次数记数
+          */
+        *restLotteryCount(){
+            yield app.redis.hdel('lotterys');
+        }
+
+        /**
          *
          * @param pageid
          * @returns {*}

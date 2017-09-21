@@ -12,7 +12,7 @@ module.exports = function() {
 
   exports.task = function* (ctx) {
     // 管理员计数清空
-    yield ctx.service.admin.restAdminsCount();
+    yield ctx.service.lottery.restLotteryCount();
   };
   return exports;
 };

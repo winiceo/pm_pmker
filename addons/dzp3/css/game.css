@@ -427,15 +427,15 @@ html,body,div,img,a{
     overflow:hidden;
     *zoom:1;z-index:10;
     left:center;
-    top:0;
+    top:0px;
     z-index: 201;
 }
 
-.abstract{
+.box33 .abstract{
     width: 300px;
-    height:300px;
+    height:200px;
     margin: auto; 
-    margin-top: 0;
+    margin-top: 150px;
     border-radius: 15px; 
     background: #fff;
     padding-bottom: 30px; 

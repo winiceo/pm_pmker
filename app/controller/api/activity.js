@@ -2,7 +2,6 @@
 const Parse = require('../../lib/parse');
 const moment = require('moment');
 const _ = require('lodash');
-
 const Activity = Parse.Object.extend('activity');
 
 // 活动管理
@@ -168,6 +167,41 @@ module.exports = app => {
                 if (page) {
                     if (page.get('team') == ctx.user.team) {
                         page.set('status', 'deleted');
+                        return page.save();
+                    } else {
+                        ret.code = 10020;
+                        ret.message = '没有权限操作';
+                    }
+                }
+                ret.code = 10030;
+                ret.message = '活动不在存';
+
+
+            }, function (err) {
+                ret.code = 10040;
+                ret.message = '操作错误';
+                app.logger.error(err);
+                return null;
+            });
+            ctx.body = ret;
+
+        }
+        //改变状态
+        * changeStatus() {
+            const {ctx, service} = this;
+            const pageid = ctx.params.id;
+            const query = new Parse.Query('activity');
+            query.equalTo('objectId', pageid);
+            const body = ctx.request.body;
+            const ret = {
+                code: 200,
+            };
+            yield query.first().then(function (page) {
+
+
+                if (page) {
+                    if (page.get('team') == ctx.user.team) {
+                        page.set('status', body.status);
                         return page.save();
                     } else {
                         ret.code = 10020;

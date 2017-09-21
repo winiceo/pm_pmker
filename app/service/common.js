@@ -37,6 +37,7 @@ module.exports = app => {
 
             }
             console.log('session %s', ctx.session.user_id);
+            console.log( ctx.request);
             const ret = {};
             if (userInfo == null || ctx.session.user_id == null) {
                 ctx.session.user_id = null;

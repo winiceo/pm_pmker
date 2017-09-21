@@ -29,9 +29,8 @@ module.exports = app => {
 
             };
 
-            var myLotteryNum=yield app.redis.hincrby('lotterys',`${activityId}:${options.userInfo.unionid}`,-1);
+            var myLotteryNum=yield service.lottery.getNum(options.activity,options.userInfo.unionid);
 
-              //console.log(`${activityId}:${options.userInfo.unionid}`)
 
             let ret = {};
             if (res == -1||myLotteryNum<=0) {
@@ -66,7 +65,7 @@ module.exports = app => {
                     rid: res.index
                 };
             }
-
+            yield app.redis.hincrby('lotterys',`${activityId}:${options.userInfo.unionid}`,-1);
             ctx.body = ret;
 
         }

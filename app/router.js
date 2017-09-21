@@ -70,6 +70,7 @@ module.exports = app => {
   app.get('/api/v1/activity/get/:id', 'api.activity.get');
   app.post('/api/v1/activity/save', checktoken, 'api.activity.save');
   app.post('/api/v1/activity/delete/:id', checktoken, 'api.activity.destoryActivity');
+  app.post('/api/v1/activity/status/:id', checktoken, 'api.activity.changeStatus');
 
   // 活动奖品
   app.post('/api/v1/award/delete/:id', checktoken, 'api.activity.destroyAward');
@@ -95,6 +96,7 @@ module.exports = app => {
   app.post('/lottery/draw/:id', app.controller.page.lottery.draw);
   app.post('/lottery/saveinfo', app.controller.page.lottery.saveinfo);
 
+  //奖品核销
   app.get('/draw/qrcode/:id', app.controller.page.qrcode.check);
 
 
