@@ -97,10 +97,10 @@ module.exports = app => {
             };
             const query = new Parse.Query('check');
             query.equalTo('objectId', checkid);
-            query.equalTo('team', ctx.session.team);
+            query.equalTo('team', ctx.user.team);
 
             console.log(checkid)
-            console.log(ctx.session.team)
+            
             yield query.first().then(function (item) {
                 console.log(item)
                 if(item){
