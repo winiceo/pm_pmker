@@ -111,7 +111,7 @@ $(document).ready(function(){
                         rotateFn(item, turnplate.restaraunts[item-1]);
                     }
 
-                    $("#startpopular").text(data.num);
+                    $("#startpopular").text(data.num-1);
                 } else {
                     layer.msg(data.msg);
                 }
