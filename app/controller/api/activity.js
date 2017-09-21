@@ -129,6 +129,8 @@ module.exports = app => {
                     relation.add(r);
                 });
                 delete (body.awardList);
+
+                console.log(body)
                 activity.set(body);
                 return activity.save();
 

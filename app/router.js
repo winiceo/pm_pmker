@@ -9,6 +9,7 @@ module.exports = app => {
   const wechatPayment = app.middlewares.wechatpay({}, app);
 
   require('./router/make')(app);
+  require('./router/php')(app);
 
   // 处理微信主动通知的消息 appid 不为同公从号，暂未处理
   app.all('/wechat/:appid', checkWechat, 'wechat.wechat.wechat');

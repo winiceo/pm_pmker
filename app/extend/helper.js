@@ -32,7 +32,7 @@ module.exports = {
     if (format == 2) {
       return date.fromNow();
     }
-    format = 'YYYY/MM/DD';
+
     return date.format(format);
 
   },
