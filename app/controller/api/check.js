@@ -98,9 +98,18 @@ module.exports = app => {
             const query = new Parse.Query('check');
             query.equalTo('objectId', checkid);
             query.equalTo('team', ctx.session.team);
+
+            console.log(checkid)
+            console.log(ctx.session.team)
             yield query.first().then(function (item) {
                 console.log(item)
-                return item.destroy();
+                if(item){
+                    return item.destroy();
+                }else{
+                    ret.code = 100002;
+                    ret.message = '没权限操作'
+                }
+
 
             }, function (err) {
 
