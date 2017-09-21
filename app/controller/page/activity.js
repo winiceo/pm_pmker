@@ -23,6 +23,8 @@ module.exports = app => {
                 cdn: '/public/addons/dzp3',
                 page: JSON.stringify(activity),
                 type: activity.awardList ? activity.awardList.length : 2,
+                wxconfig: yield service.wechat.getWechatConfig(`/pm${ctx.request.href}`)
+
             };
 
             yield ctx.render('dzp3/index.html', {activity, config});

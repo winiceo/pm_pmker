@@ -12,7 +12,7 @@ module.exports = app => {
         * list() {
             const {ctx, service} = this;
 
-            const params = ctx.request.query;
+            const params = ctx.request.body;
             const ret = {
                 code: 200,
                 data: {}
@@ -31,7 +31,7 @@ module.exports = app => {
             }
             query.limit(limit);
             query.descending('createdAt');// 先进先出，正序排列
-
+            //console.log(params)
             yield query.find().then(function (items) {
 
                 const temp = [];

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-    <title>幸运大抽奖</title>
+    <title>{{activity.name}}</title>
 
     <link href="{{config.cdn}}/css/style.css" rel="stylesheet" type="text/css">
     <link href="{{config.cdn}}/css/game.css" rel="stylesheet" type="text/css">
@@ -172,17 +172,9 @@
 <script>
     var shareUrl = "/wheel/share.html";
     var gid = 3560;
-    wx.config({
-        appId: 'wx355df96c7b8db469',
-        timestamp: '1504767245',
-        nonceStr: 'SflKQDGgdNAcHWAU',
-        signature: '6efa4ea0e3d1dd9ccd029e8be39e362ac3f2549c',
-        jsApiList: [
-            'onMenuShareAppMessage',
-            'onMenuShareTimeline',
-            'hideMenuItems'
-        ]
-    });
+
+    wx.config({{config.wxconfig|dump|safe}});
+
     if(Activity.myLotteryNum<=0){
         $(".box33").show();
     }
@@ -193,8 +185,8 @@
         });
 
         var shareData = {
-            title: "幸运大抽奖",
-            desc: "玩游戏赢大奖，快快参与，精美奖品等你来拿哦！（限50字以内，请勿换行、添加空格）",
+            title: "{{activity.name}}",
+            desc: "玩游戏赢大奖，快快参与，精美奖品等你来拿哦！",
             link: window.location.href,
             imgUrl: "{{config.cdn}}/static/20161014_58003293e28e3.png",
             success: function () {
