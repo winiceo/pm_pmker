@@ -41,7 +41,7 @@ module.exports = app => {
 
   // socket 相关
   // app.io.route('lottery', app.io.controllers.lottery);
-    app.io.of('/').route('lottery', app.io.controllers.lottery);
+  app.io.of('/').route('lottery', app.io.controllers.lottery);
 
 
   // const wechat = app.middlewares.wechat();

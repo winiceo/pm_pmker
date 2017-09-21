@@ -1,5 +1,8 @@
 'use strict';
 const moment = require('moment');
+
+const Parse = require('../../lib/parse');
+
 module.exports = app => {
     class ActivityController extends app.Controller {
         * index() {
@@ -12,7 +15,9 @@ module.exports = app => {
             if (Auth.url) {
                 return ctx.redirect(Auth.url);
             }
+            const userInfo=Auth.userInfo;
             const activity = yield ctx.service.activity.get(activityId);
+            activity.myLotteryNum=yield ctx.service.lottery.getNum(activity,userInfo.unionid);
 
             const config = {
                 cdn: '/public/addons/dzp3',
@@ -29,6 +34,22 @@ module.exports = app => {
         * test() {
             const {ctx, service} = this;
             const activityId = ctx.params.id;
+            const query = new Parse.Query('activity');
+
+            query.descending('createdAt');
+            const activity = yield query.first().then(function(page) {
+
+
+                if (page) {
+                    return page.toJSON();
+                }
+                return null;
+
+            }, function(err) {
+                app.logger.error(err);
+                return null;
+            });
+            activity.awardList = yield service.activity.getAward(activity.objectId);
 
 
 
@@ -51,7 +72,7 @@ module.exports = app => {
             const config = {
                 cdn: '/public/addons/dzp3',
 
-
+                page: JSON.stringify(activity),
 
             };
             // var tt='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfdWlkIjoiMTIzNDU2IiwiaWF0IjoxNTA1MTgyNzE1fQ.-NJ9JTB_CfsWXus_fPnOsm1frFMEAtr7-6quDps0idI';
@@ -60,7 +81,7 @@ module.exports = app => {
             // const { _uid } = app.jwt.verify(tt, app.config.jwt.secret);
 
             // console.log(_uid);
-            yield ctx.render('dzp3/index.html', {  config});
+            yield ctx.render('dzp3/index.html', { activity, config});
 
 
         }

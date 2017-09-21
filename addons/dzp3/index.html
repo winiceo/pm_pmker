@@ -11,149 +11,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <title>幸运大抽奖</title>
-     <link href="{{config.cdn}}/static/css/game.css?v=15" rel="stylesheet">
-    <link href="{{config.cdn}}/static/layout.css?v=15" rel="stylesheet">
-    <link href="{{config.cdn}}/static/layer/skin/layer.css" rel="stylesheet">
-    <style>
-        .abstract .openbtn {
-            background: #e92d46;
-        }
 
-        .abstract .closebtn {
-            border: 1px solid #e92d46;
-        }
-
-        #posterCanvas {
-            display: none;
-        }
-
-        #posterCanvasBox {
-            width: 100%;
-            background: #fff;
-            padding-bottom: 30px;
-        }
-
-        #posterCanvasHeader {
-            font-size: 16px;
-            color: #666;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        #posterCanvasHelp {
-            font-size: 14px;
-            color: #999;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        #posterCanvasFooter {
-            font-size: 14px;
-            color: #999;
-            text-align: center
-        }
-
-        #posterCanvasOutput {
-            margin: 30px auto 10px;
-            text-align: center
-        }
-
-        #posterFormal {
-            top: 0;
-            left: center;
-            width: 100%;
-            height: 100%;
-            display: none;
-            background-color: rgba(0, 0, 0, .7);
-            background-size: 100% 100%;
-            position: fixed;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            z-index: 10000
-        }
-
-        #posterFormalBox {
-            color: #fff;
-            width: 90%;
-            margin: auto;
-            margin-top: 10%;
-            margin-bottom: 10%;
-            border-radius: 15px;
-            padding-bottom: 30px;
-            overflow-x: hidden;
-            overflow-y: scroll;
-        }
-
-        #posterFormalHeader {
-            color: #fff;
-            font-size: 16px;
-            line-height: 26px;
-            text-align: center;
-        }
-
-        #posterFormalConetnt img {
-            width: 100%;
-            display: block;
-            margin: 20px auto
-        }
-
-        #posterFormalClose {
-            width: 40px;
-            height: 40px;
-            color: #fff;
-            margin: 20px auto;
-            border: 1px solid #fff;
-            border-radius: 20px;
-            font-size: 30px;
-            text-align: center;
-            line-height: 36px;
-        }
-
-        .report {
-            position: fixed;
-        }
-
-        .qrcodebox {
-            color: #fff;
-            right: 10px;
-            top: 60px;
-            width: 34px;
-            height: 34px;
-            line-height: 34px;
-            position: fixed;
-            font-size: 10px;
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 17px;
-            z-index: 100000;
-            background: url({{config.cdn}}/static/8011989276SS9RB.png) repeat
-        }
-
-        .qrcodebox:hover, .qrcodebox:visited {
-            color: #fff;
-            text-decoration: none
-        }
+    <link href="{{config.cdn}}/css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{config.cdn}}/css/game.css" rel="stylesheet" type="text/css">
 
 
-    </style>
-    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-    <script src="{{config.cdn}}/static/layer/layer.js"></script>
-    <script src="{{config.cdn}}/js/zepto.min.js"></script>
-    <script src="{{config.cdn}}/js/zepto.rotate.min.js"></script>
-    <!-- baidu_start -->
-    <script>
-        //var _hmt = _hmt || [];
-        //(function() {
-        //  var hm = document.createElement("script");
-        //  hm.src = "//hm.baidu.com/hm.js?0a3090a45d79e6f06817d797102a79b5";
-        //  var s = document.getElementsByTagName("script")[0];
-        //  s.parentNode.insertBefore(hm, s);
-        //})();
-    </script>
-    <!-- baidu_end -->
 </head>
 <body style="background: #e92d46;">
 <div id="media" class="rotate">
@@ -168,21 +30,15 @@
     <img src="{{config.cdn}}/static/banner.png" width="100%">
 </div>
 
-<div id="wrapper" class="fw oh">
-
-    <div class="lottery_box fd dy05">
-        <div class="lottery_turntable pr">
-            <div class="turntable fw"></div>
-            <canvas id="lotterys" width="300" height="300"></canvas>
-            <div id="go" class="fd dy05"></div>
-        </div>
+<div class="banner">
+    <div class="turnplate" style="background-image:url({{config.cdn}}/img/turnplate-bg.png);background-size:100% 100%;">
+        <canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas>
+        <img class="pointer" src="{{config.cdn}}/img/turnplate-pointer.png"/>
     </div>
-
 </div>
 
 
-
-<div class="title">当前还剩下 <font color="yellow" id="startpopular">30</font> 次抽奖机会</div>
+<div class="title">当前还剩下 <font color="yellow" id="startpopular">{{activity.myLotteryNum}}</font> 次抽奖机会</div>
 <div class="showbox">
 
     {{activity.activeDescribe|safe}}
@@ -214,34 +70,18 @@
 </div>
 
 <input type="hidden" id="userinfo" value="0">
-<div class="box2" id="join">
+<div class="box33" id="join">
     <div class="abstract">
         <div style="line-height: 60px; text-align: center; border-bottom: 1px solid #e7e7e7; font-size: 16px; color: #333;">
-            报名参与
+
         </div>
         <div style="width: 80%; margin: auto; margin-top: 30px; margin-bottom: 20px;">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                    <td>
-                        <input type="text" class="form-control" placeholder="请输入您的姓名" id="name"
-                               style="line-height: 40px; height: 42px; font-size: 16px;">
-                    </td>
-                </tr>
-                <tr>
-                    <td height="15"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="form-control" placeholder="请输入您的手机" id="mobile"
-                               style="line-height: 40px; height: 42px; font-size: 16px;">
-                    </td>
-                </tr>
-            </table>
+             你今天的抽奖机会已经用完
         </div>
-        <div class="openbtn" id="joinbtn">报名</div>
-        <div class="closebtn" id="closebtn1">取消</div>
+
     </div>
 </div>
+
 
 <div class="box" id="fail">
     <div style="width:350px; height:309px; color: #fff; margin: auto; margin-top: 90px; background: url({{config.cdn}}/static/8030395HKD8965R.png); background-size: cover;">
@@ -304,7 +144,7 @@
 <div id="posterCanvas">
     <div id="posterCanvasBox">
         <div id="posterCanvasHeadimg" style="background: #e92d46;">
-            
+
         </div>
         <div id="posterCanvasHeader">幸运大抽奖</div>
         <div id="posterCanvasHelp">抽奖活动进行中</div>
@@ -314,206 +154,21 @@
 </div>
 
 
-<script src="{{config.cdn}}/js/lottery.js"></script>
-
 <script>
     var currentPage = 1;
     var pageCount = 0;
     var Activity={{activity|dump|safe}}
 
-
-    $('#posterCanvasOutput').qrcode({
-        render: "canvas",
-        width: 140,
-        height: 140,
-        text: window.location.href
-    });
-
-    $("#posterFormalClose").click(function () {
-        $("#posterFormal").hide();
-    });
-
-    $(".sharevote").click(function () {
-        $("#posterCanvas").show();
-        html2canvas(document.getElementById("posterCanvas"), {
-            onrendered: function (canvas) {
-                canvas.id = "mycanvas";
-                var dataUrl = canvas.toDataURL();
-                var newImg = document.createElement("img");
-                newImg.src = dataUrl;
-                $("#posterFormalConetnt").html(newImg);
-                $("#posterFormal").show();
-                $("#posterCanvas").hide();
-            }
-        });
-    });
 </script>
-<audio src="{{config.cdn}}/static/3394.wav" id="wav" loop preload></audio>
-<script type="text/javascript">
 
+<script type="text/javascript" src="{{config.cdn}}/js/jquery-1.10.2.js"></script>
+<script src="http://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
-    $(document).ready(function () {
-        var userstate = 1;
-        var nstate = 1;
-        $("#joinbtn").click(function () {
-            layer.load(1);
-            var userinfo = $("#userinfo").val();
-            var name = $("#name").val();
-            if (name == "") {
-                layer.closeAll();
-                layer.msg("请输入您的姓名");
-                return false;
-            }
+<script type="text/javascript" src="{{config.cdn}}/js/awardRotate.js"></script>
 
-            var mobilev = /^((\(\d{2,3}\))|(\d{3}\-))?1[3-9]\d{9}$/;
-            var mobile = $("#mobile").val();
-            if (mobile == "") {
-                layer.closeAll();
-                layer.msg("请输入手机号码");
-                return false;
-            } else if (!mobilev.test(mobile)) {
-                layer.closeAll();
-                layer.msg("手机号码格式不正确");
-                return false;
-            }
-
-            var address = "";
-            if (userinfo == 1) {
-                address = $("#address").val();
-            }
-
-            $.ajax({
-                type: 'POST',
-                url: "/wheel/put.html",
-                data: {name: name, mobile: mobile, address: address},
-                success: function (data) {
-                    layer.closeAll();
-                    if (data.error == 0) {
-                        $("#join").hide();
-                        layer.msg(data.msg);
-                        userstate = 1;
-                    } else {
-                        layer.msg(data.msg);
-                    }
-                },
-            });
-        });
-
-
-        $('#i_cont').click(function () {
-            if (nstate == 1) {
-                if (userstate == 1) {
-                    if (rotate.flag_click) {
-                        $.ajax({
-                            type: 'POST',
-                            url: "/pm/lottery/draw/"+Activity.objectId,
-                            data: {userstate: userstate,activityid:Activity.objectId},
-                            success: function (data) {
-                                event.preventDefault();
-                                if (data.error == 0) {
-                                    document.getElementById("wav").load();
-                                    document.getElementById("wav").play();
-                                    var result = parseInt(data.rid);
-                                    if (result > 0) {
-                                        $(".gift_name").text(data.plevel);
-                                        $(".gift_award").text(data.pname);
-                                        var phtml1 = '<div class="prizebox1"><span class="plevel">' + data.plevel + '：</span><span class="pname">' + data.pname + '</span><span class="pstate" data-code="' + data.code + '" data-prompt="' + data.prompt + '">兑奖</span></div>';
-
-                                        var phtml2 = '<div class="prizebox2"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td><img src="' + data.headimgurl + '" width="40" class="headimgurl"></td><td><p class="nickname">' + data.nickname + '获得了' + data.plevel + '</p><p class="time">中奖时间：' + data.time + '</p></td></tr></table></div><div class="fgx"></div>'
-
-                                       // $("#prizebox1").prepend(phtml1);
-                                        $("#prizebox2").prepend(phtml2);
-                                    }
-//                                    var result_angle = getrate(result);
-//                                    rotate.calculate_result(result_angle, result)
-
-                                    setTimeout(function () {
-                                        self.flag_click = true;
-                                        if (result > 0) {
-                                            $("#gift").show();
-                                        } else {
-                                            $("#fail").show();
-                                        }
-                                        document.getElementById("wav").pause();
-                                    }, during_time * 1000 + 100);
-
-
-                                    $("#startpopular").text(data.num);
-                                } else {
-                                    layer.msg(data.msg);
-                                }
-                            }
-                        });
-                    }
-                } else {
-                    $("#join").show();
-                }
-            } else if (nstate == 2) {
-                layer.msg("超过最大参与数");
-            } else if (nstate == 3) {
-                layer.msg("活动未开始");
-            } else if (nstate == 4) {
-                layer.msg("活动已结束");
-            }
-
-        });
-
-        function playAudio() {
-            document.getElementById("audio").play();
-            $("#media").addClass("rotate").removeClass("off");
-        }
-
-        function pauseAudio() {
-            document.getElementById("audio").pause();
-            $("#media").addClass("off").removeClass("rotate");
-        }
-
-        $("#media").click(function () {
-            if ($("#media").hasClass("off")) {
-                playAudio();
-            } else {
-                pauseAudio();
-            }
-        });
-
-        $("#closebtn1").click(function () {
-            $("#join").hide();
-        });
-
-        $("#closebtn2").click(function () {
-            $("#fail").hide();
-        });
-
-        $("#closebtn3").click(function () {
-            $("#gift").hide();
-            window.location.href='/pm/usercenter/index'
-        });
-
-        $("#closebtn4").click(function () {
-            $("#code").hide();
-        });
-
-        $(".close").click(function () {
-            $("#gift").hide();
-        });
-
-        $(".showbox").on('click', '.pstate', function () {
-            $('#output').html("");
-            var code = $(this).attr('data-code');
-            var prompt = "使用说明：" + $(this).attr('data-prompt');
-            var prizecode = "兑奖码：" + code;
-            $('#output').qrcode({
-                width: 200,
-                height: 200,
-                text: code
-            });
-            $("#prizecode").text(prizecode);
-            $("#prompt").text(prompt);
-            $("#code").show();
-        });
-    });
-</script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="{{config.cdn}}/js/index.js"></script>
+ <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     var shareUrl = "/wheel/share.html";
     var gid = 3560;
