@@ -42,7 +42,7 @@ module.exports = app => {
             if (userInfo == null || ctx.session.user_id == null) {
                 ctx.session.user_id = null;
                 const url = yield service.wechat.checkAuth({
-                    url: callback || `/pm${ctx.request.href}`,
+                    url: callback || `/pm${ctx.request.url}`,
                     scope: scope || 'snsapi_userinfo'
                 });
 
