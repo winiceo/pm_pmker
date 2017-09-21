@@ -34,7 +34,7 @@ module.exports = app => {
               //console.log(`${activityId}:${options.userInfo.unionid}`)
 
             let ret = {};
-            if (res == -1) {
+            if (res == -1||myLotteryNum<=0) {
                 ret = {
                     code: 0,
                     nickname: options.userInfo.nickname,

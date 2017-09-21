@@ -105,7 +105,7 @@ $(document).ready(function(){
                     //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
 
 
-                    if(data.num==0){
+                    if(data.num<=0){
                         $(".box33").show();
                     }else{
                         rotateFn(item, turnplate.restaraunts[item-1]);
