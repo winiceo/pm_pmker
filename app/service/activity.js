@@ -10,6 +10,26 @@ module.exports = app => {
             this.user_id = this.ctx.session.user_id;
 
         }
+        //增加阅读数
+        * pageviews(pageid){
+
+
+            const query = new Parse.Query('activity');
+            query.equalTo('objectId', pageid);
+            // query.include("award");
+             yield query.first().then(function (page) {
+
+
+                if (page) {
+                    return page.increment('pageviews', 1);
+                }
+                return null;
+
+            }, function (err) {
+                app.logger.error(err);
+                return null;
+            });
+        }
 
         /**
          *获取活动信息

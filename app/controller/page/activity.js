@@ -17,6 +17,8 @@ module.exports = app => {
             }
             const userInfo=Auth.userInfo;
             const activity = yield ctx.service.activity.get(activityId);
+
+            yield ctx.service.activity.pageviews(activityId)
             activity.myLotteryNum=yield ctx.service.lottery.getNum(activity,userInfo.unionid);
 
             const config = {

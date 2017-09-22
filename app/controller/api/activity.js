@@ -105,6 +105,7 @@ module.exports = app => {
                 activity.set('accountId', ctx.user.accountId);
                 activity.set('team', ctx.user.team);
                 activity.set('status', 'draft');
+                activity.set('pageviews', 0);
             }
 
             // yield activity.save().then(function(activity){

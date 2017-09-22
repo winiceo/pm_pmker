@@ -100,7 +100,7 @@ module.exports = app => {
             query.equalTo('team', ctx.user.team);
 
             console.log(checkid)
-            
+
             yield query.first().then(function (item) {
                 console.log(item)
                 if(item){
