@@ -19,6 +19,7 @@ module.exports = app => {
             const activity = yield ctx.service.activity.get(activityId);
 
             yield ctx.service.activity.pageviews(activityId)
+
             activity.myLotteryNum=yield ctx.service.lottery.getNum(activity,userInfo.unionid);
 
             const config = {
@@ -55,6 +56,7 @@ module.exports = app => {
             });
             activity.awardList = yield service.activity.getAward(activity.objectId);
 
+            yield ctx.service.activity.pageviews(activity.objectId)
 
 
             //

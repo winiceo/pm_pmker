@@ -17,11 +17,14 @@ module.exports = app => {
             const query = new Parse.Query('activity');
             query.equalTo('objectId', pageid);
             // query.include("award");
-             yield query.first().then(function (page) {
 
+            console.log(pageid)
+            const pp= yield query.first().then(function (page) {
 
+                console.log(page)
                 if (page) {
-                    return page.increment('pageviews', 1);
+                    page.increment('pageviews', 1);
+                    return page.save();
                 }
                 return null;
 
@@ -29,6 +32,8 @@ module.exports = app => {
                 app.logger.error(err);
                 return null;
             });
+
+            console.log(pp)
         }
 
         /**
