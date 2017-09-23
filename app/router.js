@@ -104,6 +104,7 @@ module.exports = app => {
   // 用户中心
 
   app.get('/usercenter/index', 'usercenter.user.index');
+ // app.get('/usercenter/myprize', 'usercenter.user.myprize');
 
 
   // 测试用非正式

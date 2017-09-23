@@ -69,13 +69,14 @@
 
 
                 <template v-for="item in drawList">
-                    <div class="item-container out-of-date" v-on:click='showQrcode(item.code)' style='margin-bottom: 2px;' v-bind:class="{ active: item.status==1}">
-                        <dd>奖项：${item.draw.grade}</dd>
+                    <div class="item-container out-of-date" v-on:click='showQrcode(item.code)' style='margin-bottom: 2px;'  >
+                        <dd style="background-color: rgba(158,158,158,0.52);height: 50px;margin-top:10px;">奖项：${item.draw.grade}<div style="position: relative;left: 300px;top: -20px;">  <yd-badge v-if="item.status==1" type="danger   ">已使用</yd-badge><yd-badge v-if="item.status!=1" type="primary   ">未使用</yd-badge></div></dd>
                         <dt>奖品名称：${item.draw.title}</dt>
                         <dd>中奖时间：${item.createtime}</dd>
 
-                        <dd v-if='item.draw.desc'>备注：
-                            ${item.draw.desc}
+                        <dd v-if='item.draw.desc' >备注：
+
+                            <div v-html="item.draw.desc" style="font-size: 14px;color:grey;padding-left:10px;"></div>
                         </dd>
 
                         <dd>兑奖券号：${item.code}</dd>

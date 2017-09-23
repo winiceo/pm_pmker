@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href='{{config.cdn}}/css/base.css?t=1505204250563'/>
+    <style> a {
+        cursor: pointer;
+    } </style>
+    <link rel="stylesheet" href="/public/addons/lib/vue-ydui/dist/ydui.px.css">
+
+
+    <meta>
+
+
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="{{config.cdn}}/css/shop/score/header.css?t=1505204250563"/>
+    <link rel="stylesheet" type="text/css" href="{{config.cdn}}/css/shop/score/index.css?t=1505204250563"/>
+    <link rel="stylesheet" type="text/css" href="{{config.cdn}}/css/shop/common/qrcode-box.css?t=1505204250563"/>
+    <style>
+    .active{
+      background-color:rgba(128, 128, 128, 0.26);
+    }
+    [v-cloak] {
+  display: none;
+}
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+
+
+    <header>
+        <div class="wrap">
+            <div class="avatar fn-left">
+
+                <a href="#" class="touch-redirect  fn-clear">
+                    <img src="{{config.userinfo.headimgurl}}"/>
+                    <span class="nick">{{config.userinfo.nickname}}</span>
+                </a>
+
+
+            </div>
+            <div class="entries prizes fn-right">
+                <!--  <a href="/score/prizes" class="prize touch-redirect
+                 "><i class="icon iconfont">&#xe604;</i>我的奖品</a>
+
+
+                   <a href="/score/rank?date=monthCur"
+
+                      class="rank touch-redirect">
+                     <i class="icon iconfont">&#xe601;</i>签到排行榜
+                   </a>
+                  -->
+            </div>
+        </div>
+
+    </header>
+
+
+    <div id="prize-list">
+        <div class="wrap">
+            <div class="wrap-border"></div>
+            <yd-tab>
+                <yd-tab-panel label="未使用" :callback="load(1)"> </yd-tab-panel>
+                <yd-tab-panel label="已使用" :callback="load(2)"> </yd-tab-panel>
+
+            </yd-tab>
+
+            <yd-infinitescroll :callback="loadMore" ref="infinitescrollDemo">
+
+                <yd-list theme="1" slot="list">
+                    <yd-list-item v-for="item in list">
+                        <img slot="img" :src="item.img">
+                        <span slot="title">{{item.title}}</span>
+                        <yd-list-other slot="other">
+                            <div>
+                                <span class="list-price"><em>¥</em>{{item.marketprice}}</span>
+                                <span class="list-del-price">¥{{item.productprice}}</span>
+                            </div>
+                            <div>content</div>
+                        </yd-list-other>
+                    </yd-list-item>
+                </yd-list>
+
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip">啦啦啦，啦啦啦，没有数据啦~~</span>
+
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg"/>
+
+            </yd-infinitescroll>
+            <div class="prize-item">
+
+
+                <!--<template v-for="item in drawList">-->
+                    <!--<div class="item-container out-of-date" v-on:click='showQrcode(item.code)' style='margin-bottom: 2px;'  >-->
+                        <!--<dd style="background-color: rgba(158,158,158,0.52);height: 50px;margin-top:10px;color:white;font-size: 20px;">奖项：${item.draw.grade}<yd-badge v-if="item.status==1" type="primary   ">已使用</yd-badge></dd>-->
+                        <!--<dt>奖品名称：${item.draw.title}</dt>-->
+                        <!--<dd>中奖时间：${item.createtime}</dd>-->
+
+                        <!--<dd v-if='item.draw.desc' >备注：-->
+
+                            <!--<div v-html="item.draw.desc" style="font-size: 14px;color:grey;padding-left:10px;"></div>-->
+                        <!--</dd>-->
+
+                        <!--<dd>兑奖券号：${item.code}</dd>-->
+
+                        <!--<dd v-if='item.status==1'>已核销</dd>-->
+                        <!--<dd v-if='item.status==1'>${item.createTime}</dd>-->
+                    <!--</div>-->
+
+                <!--</template>-->
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="expired-popup alert-popup hidden">
+        <div class="alert-info">
+            <h3>商家扫码核销</h3>
+            <p><img src='' id="qrcode1"></p>
+        </div>
+        <div class="alert-act">
+            <a class="alert-pop-confirm-trigger">关闭</a>
+        </div>
+    </div>
+    <div class="pop-cover dark hidden"></div>
+
+
+
+
+    <yd-popup v-model="show1" position="bottom" width="100%">
+        <div class="m-grids-1" style='text-align: center'>
+            <a href="" class="grids-item router-link-exact-active router-link-active">
+                <div class="grids-icon">
+                    <canvas id=qr></canvas>
+                </div>
+                <div class="grids-txt"><span>商家扫此二维码核销</span></div>
+
+            </a>
+            
+        </div>
+
+
+    </yd-popup>
+
+
+</div>
+</body>
+<style>
+.m-grids-2 .grids-item {
+    width: 100%;
+}
+ 
+</style>
+<script src="{{config.cdn}}/qrious.min.js"></script>
+<script src="/public/addons/lib/vue/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="/public/addons/lib/vue-ydui/dist/ydui.js"></script>
+
+<script src="{{config.cdn}}/axios.js"></script>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data() {
+            return {
+                page:0,
+                type:1,
+                show1: false,
+                qrcode: '',
+                list: []
+
+            }
+        },
+        methods: {
+            load(type){
+                this.type=type;
+                this.page=0;
+                this.loadMore();
+            },
+            loadMore(){
+//                axios.post('/pm/api/v2/draw/check/'+this.page.objectId, {
+//
+//                    remark: vm.remark
+//
+//                })
+//                    .then(function(res){
+//                        vm.$dialog.alert({mes: '核销成功'});
+//                        window.location.href='/pm/usercenter/index'
+//                    })
+//                    .catch(function(err){
+//                        vm.$dialog.alert({mes: '操作失败'});
+//                    });
+                axios.post('/usercenter/myprize', {
+
+                        page: this.page,
+                        type: this.type
+
+                }).then(function (response) {
+                    alert(response)
+//                    const _list = response.body;
+//
+//                    this.list = [...this.list, ..._list];
+//
+//                    if (_list.length < this.pageSize || this.page == 3) {
+//                        /* 所有数据加载完毕 */
+//                        this.$refs.infinitescrollDemo.$emit('ydui.infinitescroll.loadedDone');
+//                        return;
+//                    }
+//
+//                    /* 单次请求数据完毕 */
+//                    this.$refs.infinitescrollDemo.$emit('ydui.infinitescroll.finishLoad');
+//
+//                    this.page++;
+                });
+
+            },
+            showQrcode: function (code) {
+                this.show1 = true;
+
+                var qr = new QRious({
+                    element: document.getElementById('qr'),
+
+                     
+                    size: 220,
+                    value: 'http://' + window.location.host + '/pm/draw/qrcode/' + code
+                });
+
+
+            }
+        },
+        mounted() {
+            this.load();
+            //this.drawList = JSON.parse('{{config.myLottery|dump|safe}}')
+
+        }
+    })
+</script>
+</html>
+
