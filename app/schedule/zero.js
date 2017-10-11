@@ -1,18 +1,19 @@
 'use strict';
 
-module.exports = function() {
-  const exports = {};
+module.exports = function () {
+    const exports = {};
 
-  const now = new Date();
-  const start = (now.getSeconds() + 3) % 60;
-  exports.schedule = {
-    cron: '0 0 0 * * *',
-    type: 'worker',
-  };
+    const now = new Date();
+    const start = (now.getSeconds() + 3) % 60;
+    exports.schedule = {
+        cron: '0 0 0 * * *',
+        type: 'worker',
+    };
 
-  exports.task = function* (ctx) {
-    // 管理员计数清空
-    yield ctx.service.lottery.restLotteryCount();
-  };
-  return exports;
+    exports.task = function* (ctx) {
+        // 管理员计数清空
+        console.log('zero')
+        yield ctx.service.lottery.restLotteryCount();
+    };
+    return exports;
 };

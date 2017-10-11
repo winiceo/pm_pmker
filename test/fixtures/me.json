@@ -1,0 +1,151 @@
+{
+  "options": {
+    "bpwall_id": "G1H9xp8tmv",
+    "last": 1488689879,
+    "pagesize": 20,
+    "bpwallInfo": {
+      "bp_item": [
+        {
+          "fee": 10,
+          "time": 10
+        },
+        {
+          "fee": 20,
+          "time": 20
+        },
+        {
+          "fee": 30,
+          "time": 30
+        },
+        {
+          "fee": 40,
+          "time": 40
+        }
+      ],
+      "pron_words": [],
+      "redpack_item": {
+        "min_money": 3,
+        "reverse_time": 10
+      },
+      "show_mobile_title": "true",
+      "wall_title": "ABC",
+      "wall_bg": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/wall/image/wallbg5.png",
+      "pic_size": "middle",
+      "font_size": "middle",
+      "admin_bp_times": 10,
+      "admin_el_times": 5,
+      "admin_ds_times": 5,
+      "bp_video_audit": "false",
+      "roll_pic_size": "small",
+      "font_color": "white",
+      "bp_audit": "false",
+      "bp_video": "true",
+      "bp_pic_effect": "close",
+      "redpack_effect": "open",
+      "wall_qrcode_type": "system",
+      "wall_qrcode": "",
+      "startAt": 1488685382,
+      "screen_light": 1,
+      "roll_speed": 1.1,
+      "show_num": 20,
+      "createdAt": "2017-03-05T03:43:03.000Z",
+      "updatedAt": "2017-03-05T03:43:03.556Z",
+      "wechat_qrcode": "http://weixin.qq.com/q/021wuvFE3u81T10000M07P",
+      "mobile_wall_url": "http://leven.71an.com/app/G1H9xp8tmv",
+      "mobile_face_url": "http://leven.71an.com/face/G1H9xp8tmv",
+      "web_wall_url": "http://leven.71an.com/screen/G1H9xp8tmv",
+      "love": {
+        "__type": "Relation",
+        "className": "love"
+      },
+      "love_item": {
+        "__type": "Relation",
+        "className": "love_item"
+      },
+      "guest": {
+        "__type": "Relation",
+        "className": "guest"
+      },
+      "present": {
+        "__type": "Relation",
+        "className": "present"
+      },
+      "objectId": "G1H9xp8tmv"
+    },
+    "minid": 1488685971
+  },
+  "del": [],
+  "bp": {
+    "extend_params": {
+      "guest_pic": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/groups.png",
+      "guest_name": "全体观众",
+      "item_name": "情趣内衣",
+      "says": "id:33类王往众分名市下老则派们动。"
+    },
+    "content": "管理员打赏给全体观众",
+    "ds_gif": "bras",
+    "type": "ds",
+    "isshow": "1",
+    "is_play": "0",
+    "is_delete": 0,
+    "redpackid": null,
+    "createtime": 1488690381,
+    "bp_pic_effect": "close",
+    "uid": "2p7eNaE2mE",
+    "avatar": "http://wx.qlogo.cn/mmopen/PiajxSqBRaEJUFibngUp1uZQiajTvBicAs98g0VjN9y2x11piaKYQa4CibriaRBLWCDFMVz9TSg33DXKdesMwGfkvAbwg/0",
+    "nickname": "管理员",
+    "image": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/bras.jpg",
+    "bp_time": 44,
+    "fee": 6800,
+    "createdAt": "2017-03-05T05:06:21.779Z",
+    "updatedAt": "2017-03-05T05:06:21.779Z",
+    "objectId": "26jfCTe6o9",
+    "id": "26jfCTe6o9",
+    "oid": 1488690381,
+    "ds": {
+      "guest_name": "全体观众",
+      "guest_avatar": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/groups.png",
+      "time": 44,
+      "item_name": "情趣内衣",
+      "says": "id:33类王往众分名市下老则派们动。"
+    }
+  },
+  "maxid": 1488690381,
+  "msg": [
+    {
+      "extend_params": {
+        "guest_pic": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/groups.png",
+        "guest_name": "全体观众",
+        "item_name": "情趣内衣",
+        "says": "id:33类王往众分名市下老则派们动。"
+      },
+      "content": "管理员打赏给全体观众",
+      "ds_gif": "bras",
+      "type": "ds",
+      "isshow": "1",
+      "is_play": "0",
+      "is_delete": 0,
+      "redpackid": null,
+      "createtime": 1488690381,
+      "bp_pic_effect": "close",
+      "uid": "2p7eNaE2mE",
+      "avatar": "http://wx.qlogo.cn/mmopen/PiajxSqBRaEJUFibngUp1uZQiajTvBicAs98g0VjN9y2x11piaKYQa4CibriaRBLWCDFMVz9TSg33DXKdesMwGfkvAbwg/0",
+      "nickname": "管理员",
+      "image": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/bras.jpg",
+      "bp_time": 44,
+      "fee": 6800,
+      "createdAt": "2017-03-05T05:06:21.779Z",
+      "updatedAt": "2017-03-05T05:06:21.779Z",
+      "objectId": "26jfCTe6o9",
+      "id": "26jfCTe6o9",
+      "oid": 1488690381,
+      "ds": {
+        "guest_name": "全体观众",
+        "guest_avatar": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/groups.png",
+        "time": 44,
+        "item_name": "情趣内衣",
+        "says": "id:33类王往众分名市下老则派们动。"
+      }
+    }
+  ]
+}

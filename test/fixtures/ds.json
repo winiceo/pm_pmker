@@ -1,0 +1,86 @@
+{
+  "msg": [
+    {
+      "id": 904483,
+      "uniacid": 9496,
+      "uid": 97358,
+      "avatar": "http:\/\/wx.qlogo.cn\/mmopen\/PiajxSqBRaELRvqGANibleBn1Pfrqj3BYBAqmeW1CnUjVLyibnp6HIMq7bdJib8ypfSCNuicw5TdH3Oe6FBlt7OkbAg\/0",
+      "nickname": "kkkl",
+      "content": "kkkl打赏给全体女观众",
+      "image": "http:\/\/91youyu.oss-cn-shenzhen.aliyuncs.com\/static\/bpds\/rose.png",
+      "ds_gif": "rose",
+      "type": "ds",
+      "isshow": 1,
+      "is_play": 0,
+      "is_replay": 0,
+      "redpackid": null,
+      "createtime": 1488690554,
+      "extend_params": "{\"item_name\":\"\\u73ab\\u7470\\u82b1\\u96e8\",\"guest_pic\":\"http:\\\/\\\/91youyu.oss-cn-shenzhen.aliyuncs.com\\\/static\\\/bpds\\\/female_groups.png\",\"says\":\"\\u73ab\\u7470\\u73ab\\u7470\\u6211\\u7231\\u4f60\"}",
+      "time_str": "13:09"
+    }
+  ],
+  "maxid": 904483,
+  "del": [
+    677953,
+    677957,
+    759973
+  ],
+  "bp": {
+    "id": 904483,
+    "uniacid": 9496,
+    "uid": 97358,
+    "avatar": "http:\/\/wx.qlogo.cn\/mmopen\/PiajxSqBRaELRvqGANibleBn1Pfrqj3BYBAqmeW1CnUjVLyibnp6HIMq7bdJib8ypfSCNuicw5TdH3Oe6FBlt7OkbAg\/0",
+    "nickname": "kkkl",
+    "content": "kkkl打赏给全体女观众",
+    "image": "http:\/\/91youyu.oss-cn-shenzhen.aliyuncs.com\/static\/bpds\/rose.png",
+    "ds_gif": "rose",
+    "type": "ds",
+    "isshow": 1,
+    "is_play": 0,
+    "is_replay": 0,
+    "redpackid": null,
+    "createtime": 1488690554,
+    "extend_params": "{\"item_name\":\"\\u73ab\\u7470\\u82b1\\u96e8\",\"guest_pic\":\"http:\\\/\\\/91youyu.oss-cn-shenzhen.aliyuncs.com\\\/static\\\/bpds\\\/female_groups.png\",\"says\":\"\\u73ab\\u7470\\u73ab\\u7470\\u6211\\u7231\\u4f60\"}",
+    "ds": {
+      "guest_name": "全体女观众",
+      "guest_avatar": "http:\/\/91youyu.oss-cn-shenzhen.aliyuncs.com\/static\/bpds\/female_groups.png",
+      "time": 20,
+      "item_name": "玫瑰花雨",
+      "says": "玫瑰玫瑰我爱你"
+    }
+  }
+
+  "extend_params": {
+    "guest_pic": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/groups.png",
+    "guest_name": "全体观众",
+    "item_name": "情趣内衣",
+    "says": "id:33类王往众分名市下老则派们动。"
+  },
+  "content": "管理员打赏给全体观众",
+  "ds_gif": "bras",
+  "type": "ds",
+  "isshow": "1",
+  "is_play": "0",
+  "is_delete": 0,
+  "redpackid": null,
+  "createtime": 1488690381,
+  "bp_pic_effect": "close",
+  "uid": "2p7eNaE2mE",
+  "avatar": "http://wx.qlogo.cn/mmopen/PiajxSqBRaEJUFibngUp1uZQiajTvBicAs98g0VjN9y2x11piaKYQa4CibriaRBLWCDFMVz9TSg33DXKdesMwGfkvAbwg/0",
+  "nickname": "管理员",
+  "image": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/bras.jpg",
+  "bp_time": 44,
+  "fee": 6800,
+  "createdAt": "2017-03-05T05:06:21.779Z",
+  "updatedAt": "2017-03-05T05:06:21.779Z",
+  "objectId": "26jfCTe6o9",
+  "id": "26jfCTe6o9",
+  "oid": 1488690381,
+  "ds": {
+    "guest_name": "全体观众",
+    "guest_avatar": "http://leven-dev.oss-cn-shanghai.aliyuncs.com/static/bpds/groups.png",
+    "time": 44,
+    "item_name": "情趣内衣",
+    "says": "id:33类王往众分名市下老则派们动。"
+  }
+}
