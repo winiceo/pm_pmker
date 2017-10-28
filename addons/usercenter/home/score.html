@@ -79,6 +79,7 @@
                             <div v-html="item.draw.desc" style="font-size: 14px;color:grey;padding-left:10px;"></div>
                         </dd>
 
+                        <dd>有效期：${item.startTime}~${item.endTime}</dd>
                         <dd>兑奖券号：${item.code}</dd>
 
                         <dd v-if='item.status==1'>已核销</dd>

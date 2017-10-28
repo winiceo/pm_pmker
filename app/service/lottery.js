@@ -2,6 +2,8 @@
 const _ = require('lodash');
 const Parse = require('../lib/parse');
 const Luck = require('../lib/luck');
+const moment = require('moment');
+
 module.exports = app => {
     /**
      * wall Api Service
@@ -96,6 +98,8 @@ module.exports = app => {
 
             order.set('code', yield this.service.code.get());
 
+            order.set('startTime', moment().add(1,'days').format('YYYY-MM-DD'));
+            order.set('endTime', moment().add((1+paresInt(options.activity.awardLimitDate)),'days').format('YYYY-MM-DD'));
 
             order.set('status', 0);
             return yield order.save();
@@ -107,6 +111,8 @@ module.exports = app => {
             const {ctx} = this;
             const query = new Parse.Query('drawResult');
             query.equalTo('unionid', unionid);
+            query.descending('createTime');
+
             // query.include("award");
             const result = yield query.find().then(function (page) {
 

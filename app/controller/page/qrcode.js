@@ -39,6 +39,17 @@ module.exports = app => {
                     ret.message = '没权限操作';
                     return ctx.success({page: ret});
                 }
+                let now = moment().format('YYYY-MM-DD')
+                if (now < drawResult.get('startTime')) {
+                    ret.message = '当天不能使用';
+                    return ctx.success({page: ret});
+                }
+                if (now > drawResult.get('endTime')) {
+                    ret.message = '已过期，无法使用';
+                    return ctx.success({page: ret});
+                }
+
+
                 ctx.session.check_team = drawResult.get('team');
                 ctx.session.check_unionid = Auth.userInfo.unionid;
 
