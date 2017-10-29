@@ -15,7 +15,7 @@ module.exports = app => {
             const {ctx, service} = this;
             const activityId = ctx.params.id;
 
-            
+
 
             const res = yield ctx.service.lottery.getResult(activityId);
 

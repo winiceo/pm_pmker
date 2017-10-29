@@ -112,7 +112,7 @@ module.exports = app => {
             const {ctx} = this;
             const query = new Parse.Query('drawResult');
             query.equalTo('unionid', unionid);
-            query.descending('createTime');
+            query.descending('createdAt');
 
             // query.include("award");
             const result = yield query.find().then(function (page) {
