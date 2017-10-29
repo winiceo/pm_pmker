@@ -35,6 +35,10 @@
                 <span slot="left">中奖人</span>
                 <span slot="right">${page.nickname}</span>
             </yd-cell-item>
+        <yd-cell-item>
+                <span slot="left">有效期</span>
+                <span slot="right">${page.startTime}~${page.endTime}</span>
+            </yd-cell-item>
             <yd-cell-item v-if='draw.desc'>
                 <span slot="left">备注</span>
                 <span slot="right">${draw.desc}</span>
