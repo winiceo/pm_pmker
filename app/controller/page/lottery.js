@@ -15,6 +15,7 @@ module.exports = app => {
             const {ctx, service} = this;
             const activityId = ctx.params.id;
 
+            
 
             const res = yield ctx.service.lottery.getResult(activityId);
 
@@ -26,6 +27,7 @@ module.exports = app => {
                 activityId,
                 result: res,
                 userInfo: yield service.wechat.currentUser()
+                //userInfo: {unionid:333}
 
             };
 

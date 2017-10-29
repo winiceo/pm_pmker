@@ -98,8 +98,9 @@ module.exports = app => {
 
             order.set('code', yield this.service.code.get());
 
+
             order.set('startTime', moment().add(1,'days').format('YYYY-MM-DD'));
-            order.set('endTime', moment().add((1+paresInt(options.activity.awardLimitDate)),'days').format('YYYY-MM-DD'));
+            order.set('endTime', moment().add((1+parseInt(options.activity.awardLimitDate)),'days').format('YYYY-MM-DD'));
 
             order.set('status', 0);
             return yield order.save();
